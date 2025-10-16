@@ -107,7 +107,7 @@ export function Comments() {
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold">98%</div>
-                <p className="text-sm text-muted-foreground mt-1">Hài lòng 1</p>
+                <p className="text-sm text-muted-foreground mt-1">Hài lòng 12</p>
               </div>
             </div>
           </CardContent>
