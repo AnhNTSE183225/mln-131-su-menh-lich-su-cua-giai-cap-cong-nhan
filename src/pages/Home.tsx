@@ -7,7 +7,7 @@ export function Home() {
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: 'url(/home_background.jpg)',
+          backgroundImage: `url(${import.meta.env.BASE_URL}home_background.jpg)`,
           filter: 'brightness(0.4)',
         }}
       />
@@ -27,7 +27,7 @@ export function Home() {
             <div className="space-y-4">
               <div className="aspect-video w-full overflow-hidden rounded-lg border">
                 <img
-                  src="/home_background.jpg"
+                  src={`${import.meta.env.BASE_URL}home_background.jpg`}
                   alt="V.I. Lê-nin đọc diễn văn tại Quảng trường Đỏ"
                   className="w-full h-full object-cover"
                 />
