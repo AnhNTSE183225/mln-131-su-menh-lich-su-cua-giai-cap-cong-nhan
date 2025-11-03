@@ -2,46 +2,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Users, Eye, Clock, TrendingUp } from 'lucide-react';
 import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from 'recharts';
-
-// Fake data for analytics
-const dailyVisitors = [
-  { date: '01/03', visitors: 245, pageViews: 892 },
-  { date: '02/03', visitors: 312, pageViews: 1043 },
-  { date: '03/03', visitors: 289, pageViews: 967 },
-  { date: '04/03', visitors: 401, pageViews: 1234 },
-  { date: '05/03', visitors: 378, pageViews: 1156 },
-  { date: '06/03', visitors: 423, pageViews: 1389 },
-  { date: '07/03', visitors: 467, pageViews: 1523 },
-  { date: '08/03', visitors: 501, pageViews: 1678 },
-  { date: '09/03', visitors: 478, pageViews: 1567 },
-  { date: '10/03', visitors: 523, pageViews: 1789 },
-  { date: '11/03', visitors: 589, pageViews: 1923 },
-  { date: '12/03', visitors: 612, pageViews: 2045 },
-  { date: '13/03', visitors: 634, pageViews: 2178 },
-  { date: '14/03', visitors: 701, pageViews: 2334 },
-];
-
-const pageVisits = [
-  { page: 'Trang Chủ', visits: 3245 },
-  { page: 'Trắc Nghiệm', visits: 2156 },
-  { page: 'Nhận Xét', visits: 1789 },
-  { page: 'Thống Kê', visits: 967 },
-];
-
-const hourlyTraffic = [
-  { hour: '00:00', users: 23 },
-  { hour: '02:00', users: 12 },
-  { hour: '04:00', users: 8 },
-  { hour: '06:00', users: 34 },
-  { hour: '08:00', users: 156 },
-  { hour: '10:00', users: 234 },
-  { hour: '12:00', users: 289 },
-  { hour: '14:00', users: 312 },
-  { hour: '16:00', users: 267 },
-  { hour: '18:00', users: 201 },
-  { hour: '20:00', users: 178 },
-  { hour: '22:00', users: 89 },
-];
+import { useEffect, useState } from 'react';
+import { getAnalytics, type AnalyticsData } from '@/api/analytics';
+import { Spinner } from '@/components/ui/spinner';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 
 const chartConfig = {
   visitors: {
@@ -63,10 +27,71 @@ const chartConfig = {
 };
 
 export function Analytics() {
-  const totalVisitors = dailyVisitors.reduce((sum, day) => sum + day.visitors, 0);
-  const totalPageViews = dailyVisitors.reduce((sum, day) => sum + day.pageViews, 0);
-  const avgTimeOnSite = '4:32';
-  const bounceRate = '32%';
+  const [data, setData] = useState<AnalyticsData | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchData = async (showLoading = false) => {
+      try {
+        if (showLoading) {
+          setLoading(true);
+        }
+        setError(null);
+        const analyticsData = await getAnalytics();
+        setData(analyticsData);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Failed to load analytics data');
+      } finally {
+        if (showLoading) {
+          setLoading(false);
+        }
+      }
+    };
+
+    // Initial load with loading state
+    fetchData(true);
+    
+    // Auto-refresh every 5 seconds without loading spinner
+    const intervalId = setInterval(() => fetchData(false), 5000);
+    
+    return () => clearInterval(intervalId);
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8 flex items-center justify-center min-h-[60vh]">
+        <div className="text-center space-y-4">
+          <Spinner className="h-12 w-12 mx-auto" />
+          <p className="text-muted-foreground">Đang tải dữ liệu thống kê...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <Alert variant="destructive">
+          <AlertTitle>Lỗi</AlertTitle>
+          <AlertDescription>
+            Không thể tải dữ liệu thống kê. Vui lòng đảm bảo backend đang chạy tại {import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000'}
+            <br />
+            Chi tiết: {error}
+          </AlertDescription>
+        </Alert>
+      </div>
+    );
+  }
+
+  if (!data) {
+    return null;
+  }
+
+  const totalVisitors = data.dailyVisitors.reduce((sum, day) => sum + day.visitors, 0);
+  const totalPageViews = data.dailyVisitors.reduce((sum, day) => sum + day.pageViews, 0);
+  const avgTimeOnSite = data.metrics.avgTimeOnSite;
+  const bounceRate = data.metrics.bounceRate;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -88,7 +113,7 @@ export function Analytics() {
             <CardContent>
               <div className="text-2xl font-bold">{totalVisitors.toLocaleString()}</div>
               <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">+12.5%</span> so với tuần trước
+                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.visitorsGrowth}</span> so với tuần trước
               </p>
             </CardContent>
           </Card>
@@ -101,7 +126,7 @@ export function Analytics() {
             <CardContent>
               <div className="text-2xl font-bold">{totalPageViews.toLocaleString()}</div>
               <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">+8.3%</span> so với tuần trước
+                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.pageViewsGrowth}</span> so với tuần trước
               </p>
             </CardContent>
           </Card>
@@ -114,7 +139,7 @@ export function Analytics() {
             <CardContent>
               <div className="text-2xl font-bold">{avgTimeOnSite}</div>
               <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">+0:23</span> so với tuần trước
+                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.timeGrowth}</span> so với tuần trước
               </p>
             </CardContent>
           </Card>
@@ -127,7 +152,7 @@ export function Analytics() {
             <CardContent>
               <div className="text-2xl font-bold">{bounceRate}</div>
               <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">-3.2%</span> so với tuần trước
+                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.bounceRateChange}</span> so với tuần trước
               </p>
             </CardContent>
           </Card>
@@ -141,7 +166,7 @@ export function Analytics() {
           </CardHeader>
           <CardContent>
             <ChartContainer config={chartConfig} className="h-[300px] w-full">
-              <AreaChart data={dailyVisitors}>
+              <AreaChart data={data.dailyVisitors}>
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="date" />
                 <YAxis />
@@ -176,7 +201,7 @@ export function Analytics() {
             </CardHeader>
             <CardContent>
               <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                <BarChart data={pageVisits}>
+                <BarChart data={data.pageVisits}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="page" />
                   <YAxis />
@@ -195,7 +220,7 @@ export function Analytics() {
             </CardHeader>
             <CardContent>
               <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                <LineChart data={hourlyTraffic}>
+                <LineChart data={data.hourlyTraffic}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="hour" />
                   <YAxis />
@@ -227,15 +252,15 @@ export function Analytics() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Di động</span>
-                    <span className="font-medium">62%</span>
+                    <span className="font-medium">{data.additionalStats.devices.mobile}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Máy tính</span>
-                    <span className="font-medium">32%</span>
+                    <span className="font-medium">{data.additionalStats.devices.desktop}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Máy tính bảng</span>
-                    <span className="font-medium">6%</span>
+                    <span className="font-medium">{data.additionalStats.devices.tablet}</span>
                   </div>
                 </div>
               </div>
@@ -247,15 +272,15 @@ export function Analytics() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Người dùng mới</span>
-                    <span className="font-medium">4,234</span>
+                    <span className="font-medium">{data.additionalStats.users.newUsers.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Người dùng quay lại</span>
-                    <span className="font-medium">2,123</span>
+                    <span className="font-medium">{data.additionalStats.users.returningUsers.toLocaleString()}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Tỷ lệ quay lại</span>
-                    <span className="font-medium">33.4%</span>
+                    <span className="font-medium">{data.additionalStats.users.returnRate}</span>
                   </div>
                 </div>
               </div>
@@ -267,15 +292,15 @@ export function Analytics() {
                 <div className="space-y-2">
                   <div className="flex justify-between">
                     <span>Tìm kiếm</span>
-                    <span className="font-medium">45%</span>
+                    <span className="font-medium">{data.additionalStats.sources.search}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Trực tiếp</span>
-                    <span className="font-medium">38%</span>
+                    <span className="font-medium">{data.additionalStats.sources.direct}</span>
                   </div>
                   <div className="flex justify-between">
                     <span>Mạng xã hội</span>
-                    <span className="font-medium">17%</span>
+                    <span className="font-medium">{data.additionalStats.sources.social}</span>
                   </div>
                 </div>
               </div>
