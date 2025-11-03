@@ -5,6 +5,10 @@ import { trackPageVisit } from '@/api/analytics';
 // Map route paths to Vietnamese page names (matching backend data)
 const PAGE_NAME_MAP: Record<string, string> = {
   '/': 'Trang Chủ',
+  '/quan-diem-co-ban': 'Quan Điểm Cơ Bản',
+  '/giai-cap-cong-nhan-hien-nay': 'Giai Cấp Công Nhân Hiện Nay',
+  '/giai-cap-cong-nhan-viet-nam': 'Giai Cấp Công Nhân Việt Nam',
+  '/cau-hoi-on-tap': 'Câu Hỏi Ôn Tập',
   '/comments': 'Nhận Xét',
   '/quiz': 'Trắc Nghiệm',
   '/analytics': 'Thống Kê',

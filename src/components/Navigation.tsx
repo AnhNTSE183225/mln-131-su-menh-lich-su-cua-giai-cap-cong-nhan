@@ -9,7 +9,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Home, MessageSquare, Brain, BarChart3, LogIn } from 'lucide-react';
+import { Home, MessageSquare, Brain, BarChart3, LogIn, BookOpen, Globe, Flag, HelpCircle, ChevronDown } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth';
 
 export function Navigation() {
@@ -17,12 +17,22 @@ export function Navigation() {
   const navigate = useNavigate();
   const { user, logout, isAuthenticated } = useAuth();
 
+  const contentPages = [
+    { path: '/quan-diem-co-ban', label: 'Quan Điểm Cơ Bản', icon: BookOpen },
+    { path: '/giai-cap-cong-nhan-hien-nay', label: 'Giai Cấp Công Nhân Hiện Nay', icon: Globe },
+    { path: '/giai-cap-cong-nhan-viet-nam', label: 'Giai Cấp Công Nhân Việt Nam', icon: Flag },
+    { path: '/cau-hoi-on-tap', label: 'Câu Hỏi Ôn Tập', icon: HelpCircle },
+  ];
+
   const navItems = [
     { path: '/', label: 'Trang Chủ', icon: Home },
     { path: '/comments', label: 'Nhận Xét & Phản Hồi', icon: MessageSquare },
     { path: '/quiz', label: 'Trắc Nghiệm', icon: Brain },
     { path: '/analytics', label: 'Thống Kê', icon: BarChart3 },
   ];
+
+  // Check if any content page is active
+  const isContentPageActive = contentPages.some(page => location.pathname === page.path);
 
   const getInitials = (name: string) => {
     return name
@@ -59,6 +69,41 @@ export function Navigation() {
               </Button>
             );
           })}
+
+          {/* Content Pages Dropdown */}
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button
+                variant={isContentPageActive ? 'default' : 'ghost'}
+                className="flex items-center gap-2"
+              >
+                <BookOpen className="h-4 w-4" />
+                <span className="hidden sm:inline">Nội Dung</span>
+                <ChevronDown className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" alignOffset={-8}>
+              <DropdownMenuLabel>Nội Dung Học Tập</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              {contentPages.map((page) => {
+                const Icon = page.icon;
+                const isActive = location.pathname === page.path;
+
+                return (
+                  <DropdownMenuItem
+                    key={page.path}
+                    asChild
+                    className={isActive ? 'bg-accent' : ''}
+                  >
+                    <Link to={page.path} className="flex items-center gap-2 w-full">
+                      <Icon className="h-4 w-4" />
+                      <span>{page.label}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                );
+              })}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {isAuthenticated && user ? (
             <DropdownMenu>

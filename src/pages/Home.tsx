@@ -1,69 +1,152 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
+import { BookOpen, Globe, Flag, HelpCircle } from 'lucide-react';
 
 export function Home() {
   return (
-    <div className="min-h-[calc(100vh-4rem)] relative">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${import.meta.env.BASE_URL}home_background.jpg)`,
-          filter: 'brightness(0.4)',
-        }}
-      />
-
-      {/* Content Overlay */}
-      <div className="relative z-10 container mx-auto px-4 py-8 flex items-center justify-center min-h-[calc(100vh-4rem)]">
-        <Card className="max-w-3xl w-full bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/90">
+    <div className="container mx-auto px-4 py-8">
+      <div className="max-w-4xl mx-auto space-y-8">
+        <Card>
           <CardHeader>
-            <CardTitle className="text-3xl font-bold text-center">
-              Cách Mạng Tháng Mười Nga
-            </CardTitle>
-            <CardDescription className="text-center text-lg mt-2">
-              Kỷ Niệm Một Năm Thành Công
+            <CardTitle className="text-4xl md:text-5xl text-center">Chương 2</CardTitle>
+            <CardDescription className="text-2xl md:text-3xl text-center font-bold text-foreground">
+              SỨ MỆNH LỊCH SỬ CỦA GIAI CẤP CÔNG NHÂN
             </CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6">
-            <div className="space-y-4">
-              <div className="aspect-video w-full overflow-hidden rounded-lg border">
-                <img
-                  src={`${import.meta.env.BASE_URL}home_background.jpg`}
-                  alt="V.I. Lê-nin đọc diễn văn tại Quảng trường Đỏ"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="space-y-3 text-base leading-relaxed">
-                <h3 className="font-semibold text-xl">Mô Tả Hình Ảnh:</h3>
-                <p>
-                  V.I. Lê-nin đọc diễn văn tại Quảng trường Đỏ ở Moskva trong Lễ kỷ niệm một năm
-                  Ngày Cách mạng Tháng Mười Nga thành công, ngày 7/11/1918.
-                </p>
-
-                <div className="pt-4 border-t">
-                  <h3 className="font-semibold text-xl mb-3">Bối Cảnh Lịch Sử:</h3>
-                  <p>
-                    Cách mạng Tháng Mười Nga (còn gọi là Cách mạng Bolshevik) là sự kiện lịch sử
-                    quan trọng diễn ra vào tháng 10 năm 1917, đánh dấu sự ra đời của chế độ xã hội
-                    chủ nghĩa đầu tiên trên thế giới. Dưới sự lãnh đạo của V.I. Lê-nin và Đảng
-                    Bolshevik, cuộc cách mạng đã lật đổ Chính phủ lâm thời và thiết lập chính quyền
-                    công nông.
-                  </p>
-                  <p className="mt-3">
-                    Lễ kỷ niệm một năm thành công của cách mạng vào ngày 7/11/1918 là dịp để nhân dân
-                    Nga và các lực lượng cách mạng trên thế giới khẳng định niềm tin vào con đường xã
-                    hội chủ nghĩa. Bài diễn văn của Lê-nin tại Quảng trường Đỏ trong ngày này đã truyền
-                    cảm hứng cho phong trào cách mạng thế giới.
-                  </p>
-                </div>
-
-                <div className="pt-4 border-t text-sm text-muted-foreground">
-                  <p className="italic">Nguồn ảnh: TTXVN (Thông tấn xã Việt Nam) - Ảnh tư liệu</p>
-                </div>
-              </div>
-            </div>
+          <CardContent>
+            <CardDescription className="text-lg text-center">
+              Tài liệu học tập về quan điểm cơ bản của chủ nghĩa Mác - Lênin về giai cấp công nhân 
+              và sứ mệnh lịch sử của giai cấp công nhân trong bối cảnh hiện nay
+            </CardDescription>
           </CardContent>
         </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Mục Tiêu</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">1. Về kiến thức:</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-foreground">
+                  Sinh viên nắm vững quan điểm cơ bản của chủ nghĩa Mác - Lênin về giai cấp công nhân 
+                  và sứ mệnh lịch sử của giai cấp công nhân, nội dung, biểu hiện và ý nghĩa của sứ mệnh 
+                  đó trong bối cảnh hiện nay.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">2. Về kỹ năng:</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-foreground">
+                  Biết vận dụng phương pháp luận và các phương pháp nghiên cứu chuyên ngành chủ nghĩa 
+                  xã hội khoa học vào việc phân tích sứ mệnh lịch sử của giai cấp công nhân Việt Nam 
+                  trong tiến trình cách mạng Việt Nam, trong sự nghiệp đổi mới và hội nhập quốc tế hiện nay.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle className="text-lg">3. Về tư tưởng:</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-base text-foreground">
+                  Góp phần xây dựng và củng cố niềm tin khoa học, lập trường giai cấp công nhân đối với 
+                  sự nghiệp xây dựng chủ nghĩa xã hội trên thế giới cũng như ở Việt Nam.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Giới Thiệu</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <CardDescription className="text-base text-foreground leading-relaxed">
+              Sứ mệnh lịch sử thế giới của giai cấp công nhân là nội dung chủ yếu, điểm căn bản của 
+              chủ nghĩa Mác - Lênin, là phạm trù trung tâm, nguyên lý xuất phát của chủ nghĩa xã hội 
+              khoa học. Đó cũng là trọng điểm của cuộc đấu tranh tư tưởng lý luận trong thời đại ngày nay.
+            </CardDescription>
+          </CardContent>
+        </Card>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <BookOpen className="h-8 w-8 text-primary" />
+                <CardTitle>Quan Điểm Cơ Bản Của Chủ Nghĩa Mác - Lênin</CardTitle>
+              </div>
+              <CardDescription>
+                Khái niệm, đặc điểm, nội dung sứ mệnh lịch sử và các điều kiện thực hiện
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild className="w-full">
+                <Link to="/quan-diem-co-ban">Đọc Tiếp →</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <Globe className="h-8 w-8 text-primary" />
+                <CardTitle>Giai Cấp Công Nhân Hiện Nay</CardTitle>
+              </div>
+              <CardDescription>
+                Đặc điểm và thực hiện sứ mệnh lịch sử của giai cấp công nhân trên thế giới hiện nay
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild className="w-full">
+                <Link to="/giai-cap-cong-nhan-hien-nay">Đọc Tiếp →</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <Flag className="h-8 w-8 text-primary" />
+                <CardTitle>Sứ Mệnh Lịch Sử Của Giai Cấp Công Nhân Việt Nam</CardTitle>
+              </div>
+              <CardDescription>
+                Đặc điểm, nội dung sứ mệnh lịch sử và phương hướng xây dựng giai cấp công nhân Việt Nam
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild className="w-full">
+                <Link to="/giai-cap-cong-nhan-viet-nam">Đọc Tiếp →</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-shadow">
+            <CardHeader>
+              <div className="flex items-center gap-3">
+                <HelpCircle className="h-8 w-8 text-primary" />
+                <CardTitle>Câu Hỏi Ôn Tập</CardTitle>
+              </div>
+              <CardDescription>
+                Các câu hỏi tổng hợp để ôn tập và kiểm tra kiến thức
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button asChild className="w-full">
+                <Link to="/cau-hoi-on-tap">Xem Câu Hỏi →</Link>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
