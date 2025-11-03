@@ -51,7 +51,6 @@ export function Comments() {
   const [error, setError] = useState<string | null>(null);
   const [page, setPage] = useState(0);
   const [totalPages, setTotalPages] = useState(0);
-  const [totalElements, setTotalElements] = useState(0);
   const pageSize = 10;
 
   // Form states
@@ -77,7 +76,6 @@ export function Comments() {
       ]);
       setComments(commentsData.content);
       setTotalPages(commentsData.totalPages);
-      setTotalElements(commentsData.totalElements);
       setStatistics(statsData);
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load comments');
