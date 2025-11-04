@@ -40,7 +40,6 @@ export function Crossword() {
   const { user } = useAuth();
   const [grid, setGrid] = useState<Grid>([]);
   const [userGrid, setUserGrid] = useState<string[][]>([]);
-  const [activeCell, setActiveCell] = useState<{ row: number; col: number } | null>(null);
   const [score, setScore] = useState(0);
   const [gameOver, setGameOver] = useState(false);
   const inputRefs = useRef<(HTMLInputElement | null)[][]>([]);
@@ -185,7 +184,7 @@ export function Crossword() {
                         <>
                           {cell.number && <span className="absolute top-0 left-0.5 text-[8px] font-bold">{cell.number}</span>}
                           <Input
-                            ref={el => inputRefs.current[r_idx][c_idx] = el}
+                            ref={el => { inputRefs.current[r_idx][c_idx] = el; }}
                             type="text"
                             maxLength={1}
                             className={cn(
@@ -195,7 +194,6 @@ export function Crossword() {
                             value={userGrid[r_idx][c_idx]}
                             onChange={(e) => handleInputChange(r_idx, c_idx, e.target.value)}
                             onKeyDown={(e) => handleKeyDown(e, r_idx, c_idx)}
-                            onFocus={() => setActiveCell({ row: r_idx, col: c_idx })}
                             disabled={gameOver}
                           />
                         </>
