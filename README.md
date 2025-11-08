@@ -1,3 +1,21 @@
+# MLN Frontend
+
+Ứng dụng MLN hiện hỗ trợ một trợ lý Gemini trả lời câu hỏi dựa trên nội dung duy nhất của tệp `chuong_2_su_menh_lich_su.txt`. Trợ lý xuất hiện dưới dạng bong bóng chat cố định và cũng hiển thị gợi ý câu hỏi ngay khi bắt đầu cuộc trò chuyện.
+
+## Cấu hình môi trường
+
+1. Sao chép file `.env` và thêm khóa:
+   ```bash
+   VITE_API_BASE_URL=http://localhost:8000
+   VITE_GEMINI_API_KEY=<your-local-gemini-key>
+   ```
+2. Khi chạy GitHub Actions, biến `GEMINI_API_KEY` trong repository secrets sẽ được truyền vào bước build thông qua `VITE_GEMINI_API_KEY`, vì vậy không cần commit khóa.
+
+## Lưu ý triển khai
+
+- Tệp `chuong_2_su_menh_lich_su.txt` phải tồn tại tại thư mục gốc dự án và được nhập ở dạng `?raw` trong `src/lib/mission-context.ts` để đảm bảo được bundler đóng gói.
+- Nếu cần seed dữ liệu mới cho trợ lý, cập nhật trực tiếp nội dung tệp văn bản trên rồi deploy lại.
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
