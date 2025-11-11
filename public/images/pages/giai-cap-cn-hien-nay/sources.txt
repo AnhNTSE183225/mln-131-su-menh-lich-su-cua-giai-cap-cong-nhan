@@ -1,0 +1,11 @@
+# Nguồn hình ảnh cho trang Giai Cấp Công Nhân Hiện Nay
+
+## Hướng dẫn đặt tên file:
+- page_1_1.jpg: Hình ảnh cho phần 1_1
+- page_1_2.jpg: Hình ảnh so sánh với phần 1_1
+- page_2.jpg: Hình ảnh cho phần 2
+
+## Ghi nguồn hình ảnh:
+- page_1_1.jpg: Người lao động đã từng phải làm việc rất vất vả cho các xí nghiệp tư bản. Ảnh: Internet.
+- page_1_2.jpg: Người lao động ngày nay làm việc với trang thiết bị công nghệ hiện đại Ảnh: joydo/@Canva.com
+- page_2.jpg: Ngày Quốc tế Lao động bắt nguồn từ sự kiện Haymarket ở thành phố Chicago, Mỹ, diễn ra từ ngày 01 đến ngày 04/5/1886. Ảnh: Internet.

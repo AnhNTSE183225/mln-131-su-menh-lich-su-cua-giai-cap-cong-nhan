@@ -1,0 +1,12 @@
+# Nguồn hình ảnh cho trang Giai Cấp Công Nhân Việt Nam
+
+## Hướng dẫn đặt tên file:
+- page-1.jpg: Hình ảnh cho phần 1
+- page-2.jpg: Hình ảnh cho phần 2
+- page-3.jpg: Hình ảnh cho phần 3
+
+## Ghi nguồn hình ảnh:
+# page-1.jpg: Tổng Bí thư Nông Đức Mạnh phát biểu bế mạc Hội nghị. Ảnh: ĐINH XUÂN TUÂN (TTXVN)
+# page-2.jpg: Khối công nhân trong lễ sơ duyệt diễu binh, diễu hành A80. Ảnh: Tuấn Anh
+# page-3.jpg: Học tập và làm theo tư tưởng, tấm gương đạo đức của Chủ tịch Hồ Chí Minh về đoàn kết, xây dựng Đảng trong sạch, vững mạnh
+

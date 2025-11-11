@@ -1,0 +1,17 @@
+# Nguồn hình ảnh cho trang Quan Điểm Cơ Bản
+
+## Hướng dẫn đặt tên file:
+- page-1.png: Hình ảnh cho phần 1 (Khái niệm và đặc điểm)
+- page-2.jpg: Hình ảnh cho phần 2 (Nội dung sứ mệnh)
+- page-3.jpg: Hình ảnh cho phần 3 (Điều kiện quy định)
+
+## Ghi nguồn hình ảnh:
+# page-1.jpg: Nội dung: Karl Marx và Friedrich Engels Nguồn: Ảnh tư liệu
+# page-2.jpg: Nội dung: Áp phích tuyên truyền của Cộng sản Nga năm 1929. Tác phẩm vẽ một người công nhân đang phá vỡ xiềng xích dưới lá cờ có chân dung Lênin. Khẩu hiệu trên áp phích có nghĩa là 'Ngày Quốc tế Lao động muôn năm!'. Tác giả: Vladimir Deni.
+# page-3.jpg: Nội dung: Bài phát biểu của V. I. Lênin tại cuộc mít tinh của công nhân nhà máy Putilov vào tháng 5 năm 1917. (Tác phẩm năm 1929)
+
+## Lưu ý:
+- Đảm bảo hình ảnh có độ phân giải tốt (tối thiểu 1200x800px)
+- Format khuyến nghị: .jpg hoặc .webp
+- Nếu tự làm: ghi "Nguồn: Tự thiết kế bởi [tên nhóm]"
+- Nếu từ internet: ghi rõ link nguồn

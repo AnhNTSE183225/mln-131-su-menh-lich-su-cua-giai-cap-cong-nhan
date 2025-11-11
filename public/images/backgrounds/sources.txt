@@ -1,0 +1,19 @@
+# Nguồn ảnh nền
+
+## Các file ảnh nền:
+- home_background.jpg: Ảnh nền trang chủ (đã có: home_background.jpg)
+- content_1.png: Ảnh nền trang nội dung 1
+- content_1.png: Ảnh nền trang nội dung 2
+- content_1.png: Ảnh nền trang nội dung 3
+- quiz.jpg: Ảnh nền trang quiz
+
+## Ghi nguồn:
+# home_background.jpg:  Ảnh: Tư liệu TTXVN
+# content_1.png: Tạo bởi gemini, prompt Industrial revolution painting dark, 19th century factory interior vintage, steam engine machinery texture.
+# content_2.png: Tạo bỏi gemini, prompt Soviet worker propaganda poster muted, historical strike photos 1900s, vintage workers unity painting.
+# content_3.jpg: Ảnh bởi Tạp chí Tuyên giáo
+# quiz.png: https://thechap.co.uk/get-the-look-workwear/vintage-workers/
+
+## Nội dung:
+# home_background.jpg: V.I. Lê-nin đọc diễn văn tại Quảng trường Đỏ ở Moskva trong Lễ kỷ niệm một năm ngày Cách mạng Tháng Mười Nga thành công, ngày 7/11/1918.
+
