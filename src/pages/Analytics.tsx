@@ -22,7 +22,7 @@ const chartConfig = {
   },
 };
 
-const COMMON_PAGE_NAMES = ['Trang Chủ', 'Nhận Xét', 'Trắc Nghiệm', 'Thống Kê', 'Home', 'Comments', 'Quiz', 'Analytics'];
+const COMMON_PAGE_NAMES = ['Trang Chủ', 'Nhận Xét', 'Trắc Nghiệm', 'Thống Kê', 'Home', 'Comments', 'Quiz', 'Analytics', 'Login', 'Đăng Nhập'];
 const commonPageSet = new Set(COMMON_PAGE_NAMES.map((name) => name.toLowerCase()));
 
 type AxisTickProps = {
@@ -63,6 +63,8 @@ export function Analytics() {
         }
         setError(null);
         const analyticsData = await getAnalytics();
+        // Sort dailyVisitors by date in ascending order
+        analyticsData.dailyVisitors.sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
         setData(analyticsData);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load analytics data');
