@@ -1,4 +1,7 @@
 import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
+import page1_1 from '/images/pages/giai-cap-cn-hien-nay/page_1_1.png';
+import page1_2 from '/images/pages/giai-cap-cn-hien-nay/page_1_2.png';
+import page2 from '/images/pages/giai-cap-cn-hien-nay/page_2.png';
 export function GiaiCapCongNhanHienNay() {
   const pages: PageContent[] = [
     // Page 1: Giai cấp công nhân hiện nay
@@ -7,12 +10,12 @@ export function GiaiCapCongNhanHienNay() {
       imagePosition: 'top',
       imageComparison: {
         image1: {
-          url: '/images/pages/giai-cap-cn-hien-nay/page_1_1.png',
+          url: page1_1,
           label: 'Công nhân thế kỷ XIX',
           source: 'Người lao động đã từng phải làm việc rất vất vả cho các xí nghiệp tư bản - Ảnh: Internet',
         },
         image2: {
-          url: '/images/pages/giai-cap-cn-hien-nay/page_1_2.png',
+          url: page1_2,
           label: 'Công nhân hiện đại',
           source: 'Người lao động ngày nay làm việc với trang thiết bị công nghệ hiện đại - Ảnh: joydo/@Canva.com',
         },
@@ -112,7 +115,7 @@ export function GiaiCapCongNhanHienNay() {
     {
       title: '2. Thực hiện sứ mệnh lịch sử của giai cấp công nhân trên thế giới hiện nay',
       imagePosition: 'bottom',
-      imageUrl: '/images/pages/giai-cap-cn-hien-nay/page_2.png',
+      imageUrl: page2,
       imageSource: 'Ngày Quốc tế Lao động bắt nguồn từ sự kiện Haymarket ở thành phố Chicago, Mỹ, diễn ra từ ngày 01 đến ngày 04/5/1886 - Ảnh: Internet',
       content: (
         <div className="space-y-6">

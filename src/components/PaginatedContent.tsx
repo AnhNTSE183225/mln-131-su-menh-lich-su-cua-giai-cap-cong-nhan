@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, CheckCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { SteppedProgressIndicator } from './SteppedProgressIndicator';
 import { ImageComparison } from './ImageComparison';
 
@@ -243,7 +244,7 @@ export function PaginatedContent({ pages, mainTitle, nextContentUrl, nextContent
                   Bạn đã học xong tất cả {totalPages} phần của "{mainTitle}"
                 </p>
                 <div className="pt-4">
-                  <a href={nextContentUrl}>
+                  <Link to={nextContentUrl}>
                     <Button
                       size="lg"
                       className="bg-[#DAA520] hover:bg-[#B8860B] text-[#2F2622] font-bold text-lg px-8 py-6 shadow-lg hover:shadow-xl transition-all hover:scale-105"
@@ -251,7 +252,7 @@ export function PaginatedContent({ pages, mainTitle, nextContentUrl, nextContent
                       <span>Tiếp tục học: {nextContentTitle}</span>
                       <ArrowRight className="ml-2 h-6 w-6" />
                     </Button>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </CardContent>

@@ -1,11 +1,14 @@
 import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
+import page1 from '/images/pages/giai-cap-cn-vn/page-1.png';
+import page2 from '/images/pages/giai-cap-cn-vn/page-2.png';
+import page3 from '/images/pages/giai-cap-cn-vn/page-3.png';
 export function GiaiCapCongNhanVietNam() {
   const pages: PageContent[] = [
     // Page 1: Đặc điểm của giai cấp công nhân Việt Nam
     {
       title: '1. Đặc điểm của giai cấp công nhân Việt Nam',
       imagePosition: 'top',
-      imageUrl: '/images/pages/giai-cap-cn-vn/page-1.png',
+      imageUrl: page1,
       imageSource: 'Tổng Bí thư Nông Đức Mạnh phát biểu bế mạc Hội nghị - Ảnh: Đinh Xuân Tuân (TTXVN)',
       content: (
         <div className="space-y-6">
@@ -95,7 +98,7 @@ export function GiaiCapCongNhanVietNam() {
     {
       title: '2. Nội dung sứ mệnh lịch sử của giai cấp công nhân Việt Nam hiện nay',
       imagePosition: 'middle',
-      imageUrl: '/images/pages/giai-cap-cn-vn/page-2.png',
+      imageUrl: page2,
       imageSource: 'Khối công nhân trong lễ sơ duyệt diễu binh, diễu hành A80 - Ảnh: Tuấn Anh',
       content: (
         <div className="space-y-6">
@@ -158,7 +161,7 @@ export function GiaiCapCongNhanVietNam() {
     {
       title: '3. Phương hướng và một số giải pháp chủ yếu để xây dựng giai cấp công nhân Việt Nam hiện nay',
       imagePosition: 'bottom',
-      imageUrl: '/images/pages/giai-cap-cn-vn/page-3.png',
+      imageUrl: page3,
       imageSource: 'Học tập và làm theo tư tưởng, tấm gương đạo đức của Chủ tịch Hồ Chí Minh về đoàn kết, xây dựng Đảng trong sạch, vững mạnh',
       content: (
         <div className="space-y-6">

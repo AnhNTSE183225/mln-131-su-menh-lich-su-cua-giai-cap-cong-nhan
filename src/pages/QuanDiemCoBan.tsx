@@ -1,11 +1,14 @@
 import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
+import page1 from '/images/pages/quan-diem-co-ban/page-1.png';
+import page2 from '/images/pages/quan-diem-co-ban/page-2.png';
+import page3 from '/images/pages/quan-diem-co-ban/page-3.png';
 export function QuanDiemCoBan() {
   const pages: PageContent[] = [
     // Page 1: Khái niệm và đặc điểm của giai cấp công nhân
     {
       title: '1. Khái niệm và đặc điểm của giai cấp công nhân',
       imagePosition: 'top',
-      imageUrl: '/images/pages/quan-diem-co-ban/page-1.png',
+      imageUrl: page1,
       imageSource: 'Karl Marx và Friedrich Engels - Ảnh tư liệu',
       content: (
         <div className="space-y-8">
@@ -174,7 +177,7 @@ export function QuanDiemCoBan() {
     {
       title: '2. Nội dung sứ mệnh lịch sử của giai cấp công nhân',
       imagePosition: 'middle',
-      imageUrl: '/images/pages/quan-diem-co-ban/page-2.png',
+      imageUrl: page2,
       imageSource: 'Áp phích tuyên truyền của Cộng sản Nga năm 1929. Tác phẩm vẽ một người công nhân đang phá vỡ xiềng xích dưới lá cờ có chân dung Lênin. Khẩu hiệu: "Ngày Quốc tế Lao động muôn năm!" - Tác giả: Vladimir Deni',
       content: (
         <div className="space-y-6">
@@ -280,7 +283,7 @@ export function QuanDiemCoBan() {
     {
       title: '3. Những điều kiện quy định và thực hiện sứ mệnh lịch sử của giai cấp công nhân',
       imagePosition: 'bottom',
-      imageUrl: '/images/pages/quan-diem-co-ban/page-3.png',
+      imageUrl: page3,
       imageSource: 'Bài phát biểu của V. I. Lênin tại cuộc mít tinh của công nhân nhà máy Putilov vào tháng 5 năm 1917 - Tác phẩm năm 1929',
       content: (
         <div className="space-y-6">
