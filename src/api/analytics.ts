@@ -11,46 +11,9 @@ export interface PageVisit {
   visits: number;
 }
 
-export interface HourlyTraffic {
-  hour: string;
-  users: number;
-}
-
-export interface Metrics {
-  avgTimeOnSite: string;
-  bounceRate: string;
-  growthMetrics: {
-    visitorsGrowth: string;
-    pageViewsGrowth: string;
-    timeGrowth: string;
-    bounceRateChange: string;
-  };
-}
-
-export interface AdditionalStats {
-  devices: {
-    mobile: string;
-    desktop: string;
-    tablet: string;
-  };
-  users: {
-    newUsers: number;
-    returningUsers: number;
-    returnRate: string;
-  };
-  sources: {
-    search: string;
-    direct: string;
-    social: string;
-  };
-}
-
 export interface AnalyticsData {
   dailyVisitors: DailyVisitor[];
   pageVisits: PageVisit[];
-  hourlyTraffic: HourlyTraffic[];
-  metrics: Metrics;
-  additionalStats: AdditionalStats;
 }
 
 /**
@@ -105,41 +68,8 @@ export async function getPageVisits(): Promise<PageVisit[]> {
 }
 
 /**
- * Fetch hourly traffic data
- */
-export async function getHourlyTraffic(): Promise<HourlyTraffic[]> {
-  const response = await fetch(`${API_BASE_URL}/api/analytics/hourly-traffic`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch hourly traffic data');
-  }
-  return response.json();
-}
-
-/**
- * Fetch metrics data
- */
-export async function getMetrics(): Promise<Metrics> {
-  const response = await fetch(`${API_BASE_URL}/api/analytics/metrics`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch metrics data');
-  }
-  return response.json();
-}
-
-/**
- * Fetch additional statistics
- */
-export async function getAdditionalStats(): Promise<AdditionalStats> {
-  const response = await fetch(`${API_BASE_URL}/api/analytics/additional-stats`);
-  if (!response.ok) {
-    throw new Error('Failed to fetch additional statistics');
-  }
-  return response.json();
-}
-
-/**
  * Track a page visit
- * This increments page visits, daily visitors, and hourly traffic
+ * This increments page visits and daily visitors
  */
 export async function trackPageVisit(page: string): Promise<void> {
   const controller = new AbortController();

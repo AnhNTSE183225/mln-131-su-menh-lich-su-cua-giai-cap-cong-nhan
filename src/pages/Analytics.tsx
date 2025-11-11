@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
-import { Users, Eye, Clock, TrendingUp } from 'lucide-react';
-import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis, YAxis, Line, LineChart } from 'recharts';
+import { Users, Eye } from 'lucide-react';
+import { Area, AreaChart, Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { useEffect, useState } from 'react';
 import { getAnalytics, type AnalyticsData } from '@/api/analytics';
 import { Spinner } from '@/components/ui/spinner';
@@ -20,11 +20,35 @@ const chartConfig = {
     label: 'Lượt truy cập',
     color: 'hsl(var(--chart-3))',
   },
-  users: {
-    label: 'Người dùng',
-    color: 'hsl(var(--chart-4))',
-  },
 };
+
+const COMMON_PAGE_NAMES = ['Trang Chủ', 'Nhận Xét', 'Trắc Nghiệm', 'Thống Kê', 'Home', 'Comments', 'Quiz', 'Analytics'];
+const commonPageSet = new Set(COMMON_PAGE_NAMES.map((name) => name.toLowerCase()));
+
+type AxisTickProps = {
+  x?: number;
+  y?: number;
+  payload?: {
+    value: string;
+  };
+};
+
+function PageAxisTick({ x = 0, y = 0, payload }: AxisTickProps) {
+  if (!payload?.value) {
+    return null;
+  }
+  return (
+    <text
+      x={x}
+      y={y + 10}
+      textAnchor="end"
+      transform={`rotate(-25 ${x},${y + 10})`}
+      className="fill-muted-foreground text-xs"
+    >
+      {payload.value}
+    </text>
+  );
+}
 
 export function Analytics() {
   const [data, setData] = useState<AnalyticsData | null>(null);
@@ -90,9 +114,7 @@ export function Analytics() {
 
   const totalVisitors = data.dailyVisitors.reduce((sum, day) => sum + day.visitors, 0);
   const totalPageViews = data.dailyVisitors.reduce((sum, day) => sum + day.pageViews, 0);
-  const avgTimeOnSite = data.metrics.avgTimeOnSite;
-  const bounceRate = data.metrics.bounceRate;
-
+  const filteredPageVisits = data.pageVisits.filter(({ page }) => !commonPageSet.has(page.toLowerCase()));
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="space-y-6">
@@ -104,7 +126,7 @@ export function Analytics() {
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           <Card>
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
               <CardTitle className="text-sm font-medium">Tổng Người Truy Cập</CardTitle>
@@ -112,9 +134,7 @@ export function Analytics() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalVisitors.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.visitorsGrowth}</span> so với tuần trước
-              </p>
+              <p className="text-xs text-muted-foreground mt-1">Tổng trong 30 ngày gần nhất</p>
             </CardContent>
           </Card>
 
@@ -125,35 +145,7 @@ export function Analytics() {
             </CardHeader>
             <CardContent>
               <div className="text-2xl font-bold">{totalPageViews.toLocaleString()}</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.pageViewsGrowth}</span> so với tuần trước
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Thời Gian Trung Bình</CardTitle>
-              <Clock className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{avgTimeOnSite}</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.timeGrowth}</span> so với tuần trước
-              </p>
-            </CardContent>
-          </Card>
-
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">Tỷ Lệ Thoát</CardTitle>
-              <TrendingUp className="h-4 w-4 text-muted-foreground" />
-            </CardHeader>
-            <CardContent>
-              <div className="text-2xl font-bold">{bounceRate}</div>
-              <p className="text-xs text-muted-foreground mt-1">
-                <span className="text-green-600 font-medium">{data.metrics.growthMetrics.bounceRateChange}</span> so với tuần trước
-              </p>
+              <p className="text-xs text-muted-foreground mt-1">Tổng lượt xem trong 30 ngày gần nhất</p>
             </CardContent>
           </Card>
         </div>
@@ -192,119 +184,31 @@ export function Analytics() {
           </CardContent>
         </Card>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {/* Page Visits Chart */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Lượt Truy Cập Theo Trang</CardTitle>
-              <CardDescription>Số lượt truy cập cho mỗi trang</CardDescription>
-            </CardHeader>
-            <CardContent>
+        
+        {/* Page Visits Chart */}
+        <Card>
+          <CardHeader>
+            <CardTitle>Lượt Truy Cập Theo Trang</CardTitle>
+            <CardDescription>
+              Số lượt truy cập cho các trang nội dung chuyên sâu (đã loại trừ trang phổ biến)
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            {filteredPageVisits.length === 0 ? (
+              <p className="text-sm text-muted-foreground text-center py-10">
+                Chưa có dữ liệu cho các trang nội dung chuyên sâu.
+              </p>
+            ) : (
               <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                <BarChart data={data.pageVisits}>
+                <BarChart data={filteredPageVisits} margin={{ bottom: 40 }}>
                   <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="page" />
+                  <XAxis dataKey="page" interval={0} tick={<PageAxisTick />} height={50} />
                   <YAxis />
                   <ChartTooltip content={<ChartTooltipContent />} />
                   <Bar dataKey="visits" fill="hsl(var(--chart-3))" radius={[8, 8, 0, 0]} />
                 </BarChart>
               </ChartContainer>
-            </CardContent>
-          </Card>
-
-          {/* Hourly Traffic Chart */}
-          <Card>
-            <CardHeader>
-              <CardTitle>Lưu Lượng Theo Giờ</CardTitle>
-              <CardDescription>Số người dùng hoạt động theo từng giờ</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <ChartContainer config={chartConfig} className="h-[300px] w-full">
-                <LineChart data={data.hourlyTraffic}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="hour" />
-                  <YAxis />
-                  <ChartTooltip content={<ChartTooltipContent />} />
-                  <Line
-                    type="monotone"
-                    dataKey="users"
-                    stroke="hsl(var(--chart-4))"
-                    strokeWidth={2}
-                    dot={{ r: 4 }}
-                  />
-                </LineChart>
-              </ChartContainer>
-            </CardContent>
-          </Card>
-        </div>
-
-        {/* Additional Stats */}
-        <Card>
-          <CardHeader>
-            <CardTitle>Thống Kê Bổ Sung</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="space-y-2">
-                <div className="text-sm font-medium text-muted-foreground">
-                  Thiết Bị Truy Cập
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Di động</span>
-                    <span className="font-medium">{data.additionalStats.devices.mobile}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Máy tính</span>
-                    <span className="font-medium">{data.additionalStats.devices.desktop}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Máy tính bảng</span>
-                    <span className="font-medium">{data.additionalStats.devices.tablet}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-sm font-medium text-muted-foreground">
-                  Người Dùng Mới
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Người dùng mới</span>
-                    <span className="font-medium">{data.additionalStats.users.newUsers.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Người dùng quay lại</span>
-                    <span className="font-medium">{data.additionalStats.users.returningUsers.toLocaleString()}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Tỷ lệ quay lại</span>
-                    <span className="font-medium">{data.additionalStats.users.returnRate}</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <div className="text-sm font-medium text-muted-foreground">
-                  Nguồn Truy Cập
-                </div>
-                <div className="space-y-2">
-                  <div className="flex justify-between">
-                    <span>Tìm kiếm</span>
-                    <span className="font-medium">{data.additionalStats.sources.search}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Trực tiếp</span>
-                    <span className="font-medium">{data.additionalStats.sources.direct}</span>
-                  </div>
-                  <div className="flex justify-between">
-                    <span>Mạng xã hội</span>
-                    <span className="font-medium">{data.additionalStats.sources.social}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
+            )}
           </CardContent>
         </Card>
       </div>
