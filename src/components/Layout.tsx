@@ -5,14 +5,20 @@ import { Footer } from './Footer';
 import { usePageTracking } from '@/hooks/use-page-tracking';
 import { useEffect, useState } from 'react';
 
+import home_background from '/images/backgrounds/home_background.jpg';
+import content_1 from '/images/backgrounds/content_1.png';
+import content_2 from '/images/backgrounds/content_2.png';
+import content_3 from '/images/backgrounds/content_3.png';
+import quiz from '/images/backgrounds/quiz.png';
+
 // Background image mapping for each route
 const BACKGROUND_MAP: Record<string, string> = {
-  '/': '/images/backgrounds/home_background.jpg',
-  '/quan-diem-co-ban': '/images/backgrounds/content_1.png',
-  '/giai-cap-cong-nhan-hien-nay': '/images/backgrounds/content_2.png',
-  '/giai-cap-cong-nhan-viet-nam': '/images/backgrounds/content_3.png',
-  '/quiz': '/images/backgrounds/quiz.png',
-  '/cau-hoi-on-tap': '/images/backgrounds/content_1.png',
+  '/': home_background,
+  '/quan-diem-co-ban': content_1,
+  '/giai-cap-cong-nhan-hien-nay': content_2,
+  '/giai-cap-cong-nhan-viet-nam': content_3,
+  '/quiz': quiz,
+  '/cau-hoi-on-tap': content_1,
 };
 
 export function Layout() {
