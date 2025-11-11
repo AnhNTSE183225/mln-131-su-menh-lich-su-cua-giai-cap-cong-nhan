@@ -1,364 +1,401 @@
+import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 
 export function QuanDiemCoBan() {
-  return (
-    <div className="container mx-auto px-4 py-8">
-      <div className="max-w-4xl mx-auto space-y-6">
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-3xl md:text-4xl text-center">
-              QUAN ĐIỂM CƠ BẢN CỦA CHỦ NGHĨA MÁC - LÊNIN VỀ GIAI CẤP CÔNG NHÂN VÀ SỨ MỆNH LỊCH SỬ CỦA GIAI CẤP CÔNG NHÂN
-            </CardTitle>
-          </CardHeader>
-        </Card>
+  const pages: PageContent[] = [
+    // Page 1: Khái niệm và đặc điểm của giai cấp công nhân
+    {
+      title: '1. Khái niệm và đặc điểm của giai cấp công nhân',
+      imagePosition: 'top',
+      imageUrl: '/images/pages/quan-diem-co-ban/page-1.png',
+      imageSource: 'Karl Marx và Friedrich Engels - Ảnh tư liệu',
+      content: (
+        <div className="space-y-8">
+          {/* Phần Khái niệm */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-primary">a) Khái niệm giai cấp công nhân</h3>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>1. Khái niệm và đặc điểm của giai cấp công nhân</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>a) Khái niệm giai cấp công nhân</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  C. Mác và Ph. Ăngghen đã sử dụng nhiều thuật ngữ khác nhau để chỉ giai cấp công nhân như giai cấp vô sản; 
-                  giai cấp vô sản hiện đại; giai cấp công nhân hiện đại; giai cấp công nhân đại công nghiệp... Đó là những 
-                  cụm từ đồng nghĩa để chỉ giai cấp công nhân - con đẻ của nền đại công nghiệp tư bản chủ nghĩa, giai cấp 
-                  đại biểu cho lực lượng sản xuất tiên tiến, cho phương thức sản xuất hiện đại. Ngoài ra, các ông còn dùng 
-                  những thuật ngữ có nội dung hẹp hơn để chỉ các loại công nhân trong các ngành sản xuất khác nhau, trong 
-                  những giai đoạn phát triển khác nhau của công nghiệp như: công nhân khoáng sản, công nhân công trường thủ công, 
-                  công nhân công xưởng, công nhân nông nghiệp...
-                </CardDescription>
-                
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Dù diễn đạt bằng những thuật ngữ khác nhau, song giai cấp công nhân được các nhà kinh điển xác định theo 
-                  hai phương diện cơ bản:
-                </CardDescription>
+            {/* Giới thiệu */}
+            <div className="mb-6 p-4 bg-muted/30 rounded-lg border-l-4 border-primary">
+              <p className="text-base text-foreground leading-relaxed">
+                C. Mác và Ph. Ăngghen đã sử dụng nhiều thuật ngữ để chỉ giai cấp công nhân như: <span className="font-semibold">giai cấp vô sản</span>,
+                <span className="font-semibold"> giai cấp công nhân hiện đại</span>, <span className="font-semibold">giai cấp công nhân đại công nghiệp</span>...
+                - những cụm từ đồng nghĩa chỉ <span className="font-semibold">con đẻ của nền đại công nghiệp tư bản chủ nghĩa</span>,
+                giai cấp đại biểu cho <span className="font-semibold">lực lượng sản xuất tiên tiến</span> và <span className="font-semibold">phương thức sản xuất hiện đại</span>.
+              </p>
+            </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">- Về phương diện kinh tế - xã hội:</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Là sản phẩm và là chủ thể của nền sản xuất đại công nghiệp, giai cấp công nhân là những người lao động 
-                      trực tiếp hay gián tiếp vận hành các công cụ sản xuất có tính chất công nghiệp ngày càng hiện đại và xã hội hóa cao. 
-                      Họ lao động bằng phương thức công nghiệp ngày càng hiện đại với những đặc điểm nổi bật: sản xuất bằng máy móc, 
-                      lao động có tính chất xã hội hóa, năng suất lao động cao và tạo ra những tiền đề của cải vật chất cho xã hội mới.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed italic">
-                      Mô tả quá trình phát triển của giai cấp công nhân, C. Mác và Ph. Ăngghen chỉ rõ: "Trong công trường thủ công 
-                      và trong nghề thủ công, người công nhân sử dụng công cụ của mình, còn trong công xưởng thì người công nhân phải 
-                      phục vụ máy móc". Theo C. Mác và Ph. Ăngghen, công nhân công nghiệp công xưởng là bộ phận tiêu biểu cho giai 
-                      cấp công nhân hiện đại.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed italic">
-                      Trong tác phẩm Tuyên ngôn của Đảng Cộng sản, các ông nhấn mạnh: "các giai cấp khác đều suy tàn và tiêu vong 
-                      cùng với sự phát triển của đại công nghiệp, còn giai cấp vô sản lại là sản phẩm của bản thân nền đại công nghiệp" 
-                      và "công nhân cũng là một phát minh của thời đại mới, giống như máy móc vậy... Công nhân Anh là đứa con đầu lòng 
-                      của nền công nghiệp hiện đại".
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+            {/* Hai phương diện cơ bản - Grid 2 cột */}
+            <p className="text-base font-semibold mb-4 text-foreground">Giai cấp công nhân được xác định theo hai phương diện cơ bản:</p>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">- Về phương diện chính trị - xã hội:</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Từ lịch sử phát triển của chủ nghĩa tư bản, giai cấp công nhân còn là sản phẩm xã hội của quá trình phát triển 
-                      tư bản chủ nghĩa, một xã hội có "điều kiện tồn tại dựa trên cơ sở chế độ làm thuê". Trong quan hệ sản xuất tư bản 
-                      chủ nghĩa, "giai cấp vô sản là giai cấp những công nhân làm thuê hiện đại, vì mất các tư liệu sản xuất của bản thân, 
-                      nên buộc phải bán sức lao động của mình để sống".
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      C. Mác và Ph. Ăngghen chỉ rõ, đó là giai cấp của những người lao động không có sở hữu tư liệu sản xuất chủ yếu 
-                      của xã hội. Họ phải bán sức lao động cho nhà tư bản và bị chủ tư bản bóc lột giá trị thặng dư. Đối diện với nhà tư 
-                      bản, công nhân là những người lao động tự do, với nghĩa là tự do bán sức lao động của mình để kiếm sống. Chính điều 
-                      này khiến cho giai cấp công nhân trở thành giai cấp đối kháng với giai cấp tư sản. "Những công nhân ấy, buộc phải tự 
-                      bán mình để kiếm ăn từng bữa một, là một hàng hóa, tức là một món hàng đem bán như bất cứ món hàng nào khác, vì thế, 
-                      họ phải chịu hết mọi sự may rủi của cạnh tranh, mọi sự lên xuống của thị trường với mức độ như nhau".
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Mâu thuẫn cơ bản của phương thức sản xuất tư bản chủ nghĩa là mâu thuẫn giữa lực lượng sản xuất xã hội hóa ngày càng 
-                      rộng lớn với quan hệ sản xuất tư bản chủ nghĩa dựa trên chế độ tư hữu tư bản chủ nghĩa về tư liệu sản xuất. Mâu thuẫn 
-                      cơ bản này thể hiện về mặt xã hội là mâu thuẫn về lợi ích giữa giai cấp công nhân và giai cấp tư sản. Lao động sống 
-                      của công nhân là nguồn gốc của giá trị thặng dư và sự giàu có của giai cấp tư sản cũng chủ yếu nhờ vào việc bóc lột 
-                      được ngày càng nhiều hơn giá trị thặng dư.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Mâu thuẫn đó cho thấy tính chất đối kháng không thể điều hòa giữa giai cấp công nhân (giai cấp vô sản) với giai cấp 
-                      tư sản trong phương thức sản xuất tư bản chủ nghĩa và trong chế độ tư bản chủ nghĩa.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed font-semibold">
-                      Từ phân tích trên, theo chủ nghĩa Mác - Lênin: Giai cấp công nhân là một tập đoàn xã hội, hình thành và phát triển 
-                      cùng với quá trình phát triển của nền công nghiệp hiện đại; họ lao động bằng phương thức công nghiệp ngày càng hiện đại 
-                      và gắn liền với quá trình sản xuất vật chất hiện đại, là đại biểu cho phương thức sản xuất mang tính xã hội hóa ngày 
-                      càng cao. Họ là người làm thuê do không có tư liệu sản xuất, buộc phải bán sức lao động để sống và bị giai cấp tư sản 
-                      bóc lột giá trị thặng dư; vì vậy lợi ích cơ bản của họ đối lập với lợi ích cơ bản của giai cấp tư sản. Đó là giai cấp có 
-                      sứ mệnh phủ định chế độ tư bản chủ nghĩa, xây dựng thành công chủ nghĩa xã hội và chủ nghĩa cộng sản trên toàn thế giới.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+            <div className="grid md:grid-cols-2 gap-6 mb-6">
+              {/* Phương diện Kinh tế - Xã hội */}
+              <div className="bg-[#2F2622] p-6 rounded-lg border border-[#DAA520]/40">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="p-2 bg-[#DAA520] rounded-lg">
+                    <svg className="w-6 h-6 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#DAA520]">Phương diện Kinh tế - Xã hội</h4>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    Là <span className="font-semibold">sản phẩm và chủ thể</span> của nền sản xuất đại công nghiệp, giai cấp công nhân
+                    <span className="font-semibold"> vận hành các công cụ sản xuất công nghiệp</span> ngày càng hiện đại và xã hội hóa cao.
+                  </p>
+                  <div className="bg-[#26201D] p-3 rounded border-l-2 border-[#DAA520]">
+                    <p className="text-sm font-semibold mb-2 text-[#C2B280]">Đặc điểm nổi bật:</p>
+                    <ul className="text-sm space-y-1 ml-4 text-[#E6DCCF]">
+                      <li>• Sản xuất bằng máy móc</li>
+                      <li>• Lao động có tính xã hội hóa</li>
+                      <li>• Năng suất lao động cao</li>
+                      <li>• Tạo tiền đề vật chất cho xã hội mới</li>
+                    </ul>
+                  </div>
+                  <blockquote className="border-l-4 border-[#DAA520] pl-4 py-2 bg-[#26201D]/50 italic text-sm text-[#C2B280]">
+                    <p>"Trong công trường thủ công và nghề thủ công, người công nhân sử dụng công cụ của mình, còn trong công xưởng thì người công nhân phải phục vụ máy móc."</p>
+                    <footer className="text-xs mt-1 text-[#C2B280]/70">- C. Mác & Ph. Ăngghen</footer>
+                  </blockquote>
+                </div>
+              </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>b) Đặc điểm của giai cấp công nhân</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Nghiên cứu giai cấp công nhân (giai cấp vô sản) từ phương diện kinh tế - xã hội và chính trị - xã hội trong chủ nghĩa tư bản, 
-                  C. Mác và Ph. Ăngghen đã không những đưa lại quan niệm khoa học về giai cấp công nhân mà còn làm sáng tỏ những đặc điểm quan 
-                  trọng của nó với tư cách là một giai cấp cách mạng có sứ mệnh lịch sử thế giới. Có thể khái quát những đặc điểm chủ yếu của 
-                  giai cấp công nhân bao gồm:
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  - Đặc điểm nổi bật của giai cấp công nhân là lao động bằng phương thức công nghiệp với đặc trưng công cụ lao động là máy móc, 
-                  tạo ra năng suất lao động cao, quá trình lao động mang tính chất xã hội hóa.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  - Giai cấp công nhân là sản phẩm của bản thân nền đại công nghiệp, là chủ thể của quá trình sản xuất vật chất hiện đại. Do đó, 
-                  giai cấp công nhân là đại biểu cho lực lượng sản xuất tiên tiến, cho phương thức sản xuất tiên tiến, quyết định sự tồn tại và 
-                  phát triển của xã hội hiện đại.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  - Nền sản xuất đại công nghiệp và phương thức sản xuất tiên tiến đã rèn luyện cho giai cấp công nhân những phẩm chất đặc biệt về 
-                  tính tổ chức, kỷ luật lao động, tinh thần hợp tác và tâm lý lao động công nghiệp. Đó là một giai cấp cách mạng và có tinh thần 
-                  cách mạng triệt để.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Những đặc điểm ấy chính là những phẩm chất cần thiết để giai cấp công nhân có vai trò lãnh đạo cách mạng.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
+              {/* Phương diện Chính trị - Xã hội */}
+              <div className="bg-[#2F2622] p-6 rounded-lg border border-[#8B1E1E]/60">
+                <div className="flex items-start gap-3 mb-4">
+                  <div className="p-2 bg-[#8B1E1E] rounded-lg">
+                    <svg className="w-6 h-6 text-[#E6DCCF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="text-lg font-bold text-[#A52A2A]">Phương diện Chính trị - Xã hội</h4>
+                </div>
+                <div className="space-y-3">
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    Là <span className="font-semibold">sản phẩm xã hội</span> của quá trình phát triển tư bản chủ nghĩa,
+                    một xã hội có <span className="font-semibold">"điều kiện tồn tại dựa trên chế độ làm thuê"</span>.
+                  </p>
+                  <div className="bg-[#26201D] p-3 rounded border-l-2 border-[#8B1E1E]">
+                    <p className="text-sm text-[#E6DCCF]">
+                      <span className="font-semibold">Giai cấp vô sản</span> là giai cấp những <span className="font-semibold">công nhân làm thuê hiện đại</span>,
+                      vì <span className="font-semibold">mất các tư liệu sản xuất</span> của bản thân, nên buộc phải
+                      <span className="font-semibold"> bán sức lao động</span> để sống.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>2. Nội dung sứ mệnh lịch sử của giai cấp công nhân</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <CardDescription className="text-base text-foreground leading-relaxed">
-              Nội dung sứ mệnh lịch sử của giai cấp công nhân chính là những nhiệm vụ mà giai cấp công nhân cần phải thực hiện với tư cách là 
-              giai cấp tiên phong, là lực lượng đi đầu trong cuộc cách mạng xác lập hình thái kinh tế - xã hội cộng sản chủ nghĩa.
-            </CardDescription>
-            <CardDescription className="text-base text-foreground leading-relaxed">
-              Theo chủ nghĩa Mác - Lênin, sứ mệnh lịch sử tổng quát của giai cấp công nhân là thông qua chính đảng tiền phong, giai cấp công nhân 
-              tổ chức, lãnh đạo nhân dân lao động đấu tranh xóa bỏ các chế độ người bóc lột người, xóa bỏ chủ nghĩa tư bản, giải phóng giai cấp 
-              công nhân, nhân dân lao động khỏi mọi sự áp bức, bóc lột, nghèo nàn, lạc hậu, xây dựng xã hội cộng sản chủ nghĩa văn minh.
-            </CardDescription>
-            <CardDescription className="text-base text-foreground leading-relaxed italic">
-              Nói về sứ mệnh lịch sử của giai cấp công nhân, C. Mác đã viết: "Thực hiện sự nghiệp giải phóng thế giới ấy, - đó là sứ mệnh lịch sử 
-              của giai cấp vô sản hiện đại."
-            </CardDescription>
-            <CardDescription className="text-base text-foreground leading-relaxed font-semibold">
+            {/* Định nghĩa tổng hợp */}
+            <div className="bg-gradient-to-r from-primary/10 to-primary/5 p-6 rounded-lg border-2 border-primary/30">
+              <div className="flex items-start gap-3">
+                <svg className="w-6 h-6 text-primary mt-1 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div>
+                  <p className="font-bold text-primary mb-2">Định nghĩa theo chủ nghĩa Mác - Lênin:</p>
+                  <p className="text-base leading-relaxed">
+                    <span className="font-semibold">Giai cấp công nhân</span> là một <span className="font-semibold">tập đoàn xã hội</span>,
+                    hình thành và phát triển cùng với quá trình phát triển của <span className="font-semibold">nền công nghiệp hiện đại</span>;
+                    họ lao động bằng <span className="font-semibold">phương thức công nghiệp ngày càng hiện đại</span> và gắn liền với
+                    <span className="font-semibold"> quá trình sản xuất vật chất hiện đại</span>, là đại biểu cho
+                    <span className="font-semibold"> phương thức sản xuất mang tính xã hội hóa ngày càng cao</span>.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Phần Đặc điểm */}
+          <div>
+            <h3 className="text-2xl font-bold mb-6 text-primary">b) Đặc điểm của giai cấp công nhân</h3>
+
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* Đặc điểm 1 */}
+              <div className="flex gap-4 p-4 bg-[#3A2D1F] rounded-lg border border-[#DAA520]/30">
+                <div className="flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#DAA520] flex items-center justify-center text-[#1A1512] font-bold shadow-lg">1</div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#DAA520] mb-2">Phương thức lao động công nghiệp</h4>
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    Lao động bằng <span className="font-semibold">máy móc</span>, tạo ra <span className="font-semibold">năng suất cao</span>,
+                    quá trình lao động mang <span className="font-semibold">tính xã hội hóa</span>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Đặc điểm 2 */}
+              <div className="flex gap-4 p-4 bg-[#3A2D1F] rounded-lg border border-[#C2B280]/30">
+                <div className="flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#C2B280] flex items-center justify-center text-[#1A1512] font-bold shadow-lg">2</div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#C2B280] mb-2">Sản phẩm của đại công nghiệp</h4>
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    Là <span className="font-semibold">sản phẩm của nền đại công nghiệp</span>,
+                    là <span className="font-semibold">chủ thể</span> của quá trình sản xuất vật chất hiện đại.
+                  </p>
+                </div>
+              </div>
+
+              {/* Đặc điểm 3 */}
+              <div className="flex gap-4 p-4 bg-[#3A2D1F] rounded-lg border border-[#8B1E1E]/40">
+                <div className="flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#A52A2A] flex items-center justify-center text-[#E6DCCF] font-bold shadow-lg">3</div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#A52A2A] mb-2">Phẩm chất đặc biệt</h4>
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    <span className="font-semibold">Tính tổ chức</span>, <span className="font-semibold">kỷ luật lao động</span>,
+                    <span className="font-semibold"> tinh thần hợp tác</span> và <span className="font-semibold">tâm lý lao động công nghiệp</span>.
+                  </p>
+                </div>
+              </div>
+
+              {/* Đặc điểm 4 */}
+              <div className="flex gap-4 p-4 bg-[#3A2D1F] rounded-lg border border-[#8B6914]/40">
+                <div className="flex-shrink-0">
+                  <div className="w-10 h-10 rounded-full bg-[#8B6914] flex items-center justify-center text-[#E6DCCF] font-bold shadow-lg">4</div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-[#8B6914] mb-2">Giai cấp cách mạng triệt để</h4>
+                  <p className="text-sm leading-relaxed text-[#E6DCCF]">
+                    Đại diện cho <span className="font-semibold">lực lượng sản xuất tiên tiến</span>,
+                    mang <span className="font-semibold">sứ mệnh lịch sử</span> xây dựng xã hội mới.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+
+    // Page 2: Nội dung sứ mệnh lịch sử của giai cấp công nhân
+    {
+      title: '2. Nội dung sứ mệnh lịch sử của giai cấp công nhân',
+      imagePosition: 'middle',
+      imageUrl: '/images/pages/quan-diem-co-ban/page-2.png',
+      imageSource: 'Áp phích tuyên truyền của Cộng sản Nga năm 1929. Tác phẩm vẽ một người công nhân đang phá vỡ xiềng xích dưới lá cờ có chân dung Lênin. Khẩu hiệu: "Ngày Quốc tế Lao động muôn năm!" - Tác giả: Vladimir Deni',
+      content: (
+        <div className="space-y-6">
+          {/* Introduction */}
+          <div className="bg-[#2F2622] p-5 rounded-lg border-l-4 border-[#8B1E1E]">
+            <p className="text-base text-[#E6DCCF] leading-relaxed mb-3">
+              Nội dung sứ mệnh lịch sử của giai cấp công nhân chính là những nhiệm vụ mà giai cấp công nhân cần phải thực hiện với tư cách là
+              <span className="font-semibold"> giai cấp tiên phong</span>, là <span className="font-semibold">lực lượng đi đầu</span> trong cuộc cách mạng xác lập hình thái kinh tế - xã hội cộng sản chủ nghĩa.
+            </p>
+            <p className="text-base text-[#E6DCCF] leading-relaxed font-semibold">
               Sứ mệnh lịch sử của giai cấp công nhân thể hiện trên ba nội dung cơ bản:
-            </CardDescription>
+            </p>
+          </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">- Nội dung kinh tế:</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Là nhân tố hàng đầu của lực lượng sản xuất xã hội hóa cao, giai cấp công nhân cũng là đại biểu cho quan hệ sản xuất mới, sản xuất 
-                  ra của cải vật chất ngày càng nhiều đáp ứng nhu cầu ngày càng tăng của con người và xã hội. Bằng cách đó, giai cấp công nhân tạo 
-                  tiền đề vật chất - kỹ thuật cho sự ra đời của xã hội mới.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Mặt khác, tính chất xã hội hóa cao của lực lượng sản xuất đòi hỏi một quan hệ sản xuất mới, phù hợp với chế độ công hữu các tư 
-                  liệu sản xuất chủ yếu của xã hội là nền tảng, tiêu biểu cho lợi ích của toàn xã hội. Giai cấp công nhân đại biểu cho lợi ích chung 
-                  của xã hội. Chỉ có giai cấp công nhân là giai cấp duy nhất không có lợi ích riêng với nghĩa là tư hữu. Nó phấn đấu cho lợi ích chung 
-                  của toàn xã hội. Nó chỉ tìm thấy lợi ích chân chính của mình khi thực hiện được lợi ích chung của cả xã hội.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Ở các nước xã hội chủ nghĩa, giai cấp công nhân thông qua quá trình công nghiệp hóa và thực hiện "một kiểu tổ chức xã hội mới về lao động" 
-                  để tăng năng suất lao động xã hội và thực hiện các nguyên tắc sở hữu, quản lý và phân phối phù hợp với nhu cầu phát triển sản xuất, 
-                  thực hiện tiến bộ và công bằng xã hội.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Trên thực tế, hầu hết các nước xã hội chủ nghĩa lại ra đời từ phương thức phát triển rút ngắn, bỏ qua chế độ tư bản chủ nghĩa. Do đó, 
-                  để thực hiện sứ mệnh lịch sử của mình về nội dung kinh tế, giai cấp công nhân phải đóng vai trò nòng cốt trong quá trình giải phóng lực lượng 
-                  sản xuất (vốn bị kìm hãm, lạc hậu, chậm phát triển trong quá khứ), thúc đẩy lực lượng sản xuất phát triển để tạo cơ sở cho quan hệ sản xuất 
-                  mới, xã hội chủ nghĩa ra đời.
-                </CardDescription>
-              </CardContent>
-            </Card>
+          {/* Three main contents in cards */}
+          <div className="space-y-5">
+            {/* Economic Content */}
+            <div className="bg-[#2F2622] p-6 rounded-lg border-l-4 border-[#DAA520]">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="p-2 bg-[#DAA520] rounded-lg flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-[#DAA520] mb-3">Nội dung Kinh tế</h4>
+                  <div className="space-y-3">
+                    <p className="text-base text-[#E6DCCF] leading-relaxed">
+                      Là <span className="font-semibold">nhân tố hàng đầu của lực lượng sản xuất xã hội hóa cao</span>, giai cấp công nhân cũng là đại biểu cho quan hệ sản xuất mới, sản xuất
+                      ra của cải vật chất ngày càng nhiều đáp ứng nhu cầu ngày càng tăng của con người và xã hội. Bằng cách đó, giai cấp công nhân tạo
+                      <span className="font-semibold"> tiền đề vật chất - kỹ thuật</span> cho sự ra đời của xã hội mới.
+                    </p>
+                    <p className="text-base text-[#E6DCCF] leading-relaxed">
+                      Mặt khác, tính chất <span className="font-semibold">xã hội hóa cao</span> của lực lượng sản xuất đòi hỏi một <span className="font-semibold">quan hệ sản xuất mới</span>, phù hợp với <span className="font-semibold">chế độ công hữu</span> các tư
+                      liệu sản xuất chủ yếu của xã hội là nền tảng, tiêu biểu cho lợi ích của toàn xã hội.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">- Nội dung chính trị - xã hội:</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Giai cấp công nhân cùng với nhân dân lao động, dưới sự lãnh đạo của Đảng Cộng sản, tiến hành cách mạng chính trị để lật đổ quyền thống trị 
-                  của giai cấp thống trị, xóa bỏ chế độ bóc lột, áp bức, giành quyền lực về tay giai cấp công nhân và nhân dân lao động. Thiết lập nhà nước 
-                  kiểu mới, mang bản chất giai cấp công nhân, xây dựng nền dân chủ xã hội chủ nghĩa, thực hiện quyền lực của nhân dân, quyền dân chủ và làm chủ 
-                  xã hội của tuyệt đại đa số nhân dân lao động.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Giai cấp công nhân và nhân dân lao động sử dụng nhà nước của mình, do mình làm chủ như một công cụ có hiệu lực để cải tạo xã hội cũ và tổ chức 
-                  xây dựng xã hội mới, phát triển kinh tế và văn hóa, xây dựng nền chính trị dân chủ - pháp quyền, quản lý kinh tế - xã hội và tổ chức đời sống 
-                  xã hội phục vụ quyền và lợi ích của nhân dân lao động, thực hiện dân chủ, công bằng, bình đẳng và tiến bộ xã hội, theo lý tưởng và mục tiêu của 
-                  chủ nghĩa xã hội.
-                </CardDescription>
-              </CardContent>
-            </Card>
+            {/* Political-Social Content */}
+            <div className="bg-[#2F2622] p-6 rounded-lg border-l-4 border-[#8B1E1E]">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="p-2 bg-[#8B1E1E] rounded-lg flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#E6DCCF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-[#A52A2A] mb-3">Nội dung Chính trị - Xã hội</h4>
+                  <p className="text-base text-[#E6DCCF] leading-relaxed">
+                    Giai cấp công nhân cùng với nhân dân lao động, dưới sự lãnh đạo của <span className="font-semibold">Đảng Cộng sản</span>,
+                    tiến hành <span className="font-semibold">cách mạng chính trị</span> để lật đổ quyền thống trị của giai cấp thống trị,
+                    xóa bỏ chế độ bóc lột, áp bức, giành quyền lực về tay giai cấp công nhân và nhân dân lao động.
+                    Thiết lập <span className="font-semibold">nhà nước kiểu mới</span>, mang bản chất giai cấp công nhân,
+                    xây dựng nền <span className="font-semibold">dân chủ xã hội chủ nghĩa</span>.
+                  </p>
+                </div>
+              </div>
+            </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle className="text-lg">- Nội dung văn hóa, tư tưởng:</CardTitle>
-              </CardHeader>
-              <CardContent>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Thực hiện sứ mệnh lịch sử của mình, giai cấp công nhân trong tiến trình cách mạng cải tạo xã hội cũ và xây dựng xã hội mới trên lĩnh vực văn hóa, 
-                  tư tưởng cần phải tập trung xây dựng hệ giá trị mới: lao động; công bằng; dân chủ; bình đẳng và tự do.
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed">
-                  Giai cấp công nhân thực hiện cuộc cách mạng về văn hóa, tư tưởng bao gồm cải tạo cái cũ lỗi thời, lạc hậu, xây dựng cái mới, tiến bộ trong lĩnh vực 
-                  ý thức tư tưởng, trong tâm lý, lối sống và trong đời sống tinh thần xã hội. Xây dựng và củng cố ý thức hệ tiên tiến của giai cấp công nhân, đó là chủ 
-                  nghĩa Mác - Lênin, đấu tranh để khắc phục ý thức hệ tư sản và các tàn dư còn sót lại của các hệ tư tưởng cũ. Phát triển văn hóa, xây dựng con người mới 
-                  xã hội chủ nghĩa, đạo đức và lối sống mới xã hội chủ nghĩa là một trong những nội dung căn bản mà cách mạng xã hội chủ nghĩa trên lĩnh vực văn hóa tư 
-                  tưởng đặt ra đối với sứ mệnh lịch sử của giai cấp công nhân hiện đại.
-                </CardDescription>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
+            {/* Cultural-Ideological Content */}
+            <div className="bg-[#2F2622] p-6 rounded-lg border-l-4 border-[#C2B280]">
+              <div className="flex items-start gap-3 mb-4">
+                <div className="p-2 bg-[#C2B280] rounded-lg flex-shrink-0">
+                  <svg className="w-6 h-6 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                </div>
+                <div>
+                  <h4 className="text-lg font-bold text-[#C2B280] mb-3">Nội dung Văn hóa, Tư tưởng</h4>
+                  <p className="text-base text-[#E6DCCF] leading-relaxed mb-4">
+                    Thực hiện sứ mệnh lịch sử của mình, giai cấp công nhân trong tiến trình cách mạng cải tạo xã hội cũ và
+                    xây dựng xã hội mới trên lĩnh vực văn hóa, tư tưởng cần phải tập trung xây dựng <span className="font-semibold">hệ giá trị mới</span>:
+                  </p>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-2">
+                    <div className="bg-[#26201D] px-3 py-2 rounded-md text-center font-semibold text-[#DAA520] border border-[#DAA520]/30">
+                      Lao động
+                    </div>
+                    <div className="bg-[#26201D] px-3 py-2 rounded-md text-center font-semibold text-[#DAA520] border border-[#DAA520]/30">
+                      Công bằng
+                    </div>
+                    <div className="bg-[#26201D] px-3 py-2 rounded-md text-center font-semibold text-[#DAA520] border border-[#DAA520]/30">
+                      Dân chủ
+                    </div>
+                    <div className="bg-[#26201D] px-3 py-2 rounded-md text-center font-semibold text-[#DAA520] border border-[#DAA520]/30">
+                      Bình đẳng
+                    </div>
+                    <div className="bg-[#26201D] px-3 py-2 rounded-md text-center font-semibold text-[#DAA520] border border-[#DAA520]/30">
+                      Tự do
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
 
-        <Card>
-          <CardHeader>
-            <CardTitle>3. Những điều kiện quy định và thực hiện sứ mệnh lịch sử của giai cấp công nhân</CardTitle>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <Card>
-              <CardHeader>
-                <CardTitle>a) Điều kiện khách quan quy định sứ mệnh lịch sử của giai cấp công nhân</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-3">
-                <CardDescription className="text-base text-foreground leading-relaxed italic">
-                  Khẳng định tính tất yếu khách quan sứ mệnh lịch sử của giai cấp công nhân, C. Mác và Ph. Ăngghen đã nêu rõ: "Cùng với sự phát triển của đại công nghiệp, 
-                  chính cái nền tảng trên đó giai cấp tư sản đã sản xuất và chiếm hữu sản phẩm của nó, đã bị phá sập dưới chân giai cấp tư sản. Trước hết, giai cấp tư sản 
-                  sản sinh ra những người đào huyệt chôn chính nó. Sự sụp đổ của giai cấp tư sản và thắng lợi của giai cấp vô sản đều là tất yếu như nhau".
-                </CardDescription>
-                <CardDescription className="text-base text-foreground leading-relaxed font-semibold">
-                  Điều kiện khách quan quy định sứ mệnh lịch sử của giai cấp công nhân bao gồm:
-                </CardDescription>
+    // Page 3: Những điều kiện quy định và thực hiện sứ mệnh lịch sử
+    {
+      title: '3. Những điều kiện quy định và thực hiện sứ mệnh lịch sử của giai cấp công nhân',
+      imagePosition: 'bottom',
+      imageUrl: '/images/pages/quan-diem-co-ban/page-3.png',
+      imageSource: 'Bài phát biểu của V. I. Lênin tại cuộc mít tinh của công nhân nhà máy Putilov vào tháng 5 năm 1917 - Tác phẩm năm 1929',
+      content: (
+        <div className="space-y-6">
+          {/* Objective Conditions Section */}
+          <div className="bg-[#2F2622] p-6 rounded-lg border border-[#DAA520]/40">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2 bg-[#DAA520] rounded-lg">
+                <svg className="w-7 h-7 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#DAA520]">a) Điều kiện Khách quan quy định sứ mệnh lịch sử của giai cấp công nhân</h3>
+            </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Thứ nhất, do địa vị kinh tế của giai cấp công nhân.</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Giai cấp công nhân là con đẻ, sản phẩm của nền đại công nghiệp, có tính xã hội hóa ngày càng cao, là chủ thể của quá trình sản xuất vật chất hiện đại. 
-                      Vì thế, giai cấp công nhân đại diện cho phương thức sản xuất tiên tiến và lực lượng sản xuất hiện đại. Do lao động bằng phương thức công nghiệp ngày càng 
-                      hiện đại, giai cấp công nhân là người sản xuất ra của cải vật chất chủ yếu cho xã hội, làm giàu cho xã hội, có vai trò quyết định sự phát triển của xã hội hiện đại.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Điều kiện khách quan này là nhân tố kinh tế quy định giai cấp công nhân là lực lượng phá vỡ quan hệ sản xuất tư bản chủ nghĩa, giành chính quyền về tay mình, 
-                      chuyển từ giai cấp "tự nó" thành giai cấp "vì nó". Giai cấp công nhân trở thành đại biểu cho sự tiến hóa tất yếu của lịch sử, là lực lượng duy nhất có đủ điều kiện 
-                      để tổ chức và lãnh đạo xã hội, xây dựng và phát triển lực lượng sản xuất và quan hệ sản xuất xã hội chủ nghĩa, tạo nền tảng vững chắc để xây dựng chủ nghĩa xã hội 
-                      với tư cách là một chế độ xã hội kiểu mới, không còn chế độ người áp bức, bóc lột người.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+            <div className="space-y-4">
+              {/* First objective condition */}
+              <div className="bg-[#26201D] p-5 rounded-lg border-l-4 border-[#DAA520]">
+                <div className="flex gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#DAA520] text-[#1A1512] flex items-center justify-center font-bold shadow-lg">
+                    1
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-2 text-[#DAA520]">Do địa vị kinh tế của giai cấp công nhân</h4>
+                    <p className="text-base text-[#E6DCCF] leading-relaxed">
+                      Giai cấp công nhân là <span className="font-semibold">con đẻ, sản phẩm của nền đại công nghiệp</span>, có tính <span className="font-semibold">xã hội hóa ngày càng cao</span>,
+                      là <span className="font-semibold">chủ thể của quá trình sản xuất vật chất hiện đại</span>.
+                      Vì thế, giai cấp công nhân đại diện cho <span className="font-semibold">phương thức sản xuất tiên tiến</span> và <span className="font-semibold">lực lượng sản xuất hiện đại</span>.
+                    </p>
+                  </div>
+                </div>
+              </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">Thứ hai, do địa vị chính trị - xã hội của giai cấp công nhân quy định.</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Là giai cấp sản xuất ra của cải vật chất chủ yếu cho xã hội, nhưng trong chủ nghĩa tư bản giai cấp công nhân không sở hữu tư liệu sản xuất chủ yếu, phải bán 
-                      sức lao động để kiếm sống, bị bóc lột nặng nề, vì vậy lợi ích cơ bản của họ đối lập trực tiếp với lợi ích cơ bản của giai cấp tư sản và thống nhất với lợi ích 
-                      cơ bản của đa số nhân dân lao động.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Là con đẻ của nền sản xuất đại công nghiệp, giai cấp công nhân có những phẩm chất của một giai cấp tiên tiến, giai cấp cách mạng như: tính tổ chức và kỷ luật, 
-                      tự giác và đoàn kết trong cuộc đấu tranh tự giải phóng mình và giải phóng xã hội. Những phẩm chất ấy của giai cấp công nhân được hình thành từ chính những điều kiện 
-                      khách quan, được quy định từ địa vị kinh tế và địa vị chính trị - xã hội của nó trong nền sản xuất hiện đại và trong xã hội hiện đại mà giai cấp tư sản và chủ nghĩa 
-                      tư bản đã tạo ra một cách khách quan, ngoài ý muốn của nó. Giai cấp công nhân được trang bị lý luận tiên tiến là chủ nghĩa Mác - Lênin, có đội tiền phong là Đảng Cộng 
-                      sản dẫn dắt.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed font-semibold">
-                      Tóm lại, sứ mệnh lịch sử của giai cấp công nhân sở dĩ được thực hiện bởi nó là giai cấp cách mạng, đại biểu cho lực lượng sản xuất hiện đại, cho phương thức sản xuất 
-                      tiên tiến thay thế phương thức sản xuất tư bản chủ nghĩa, xác lập phương thức sản xuất cộng sản chủ nghĩa, hình thái kinh tế - xã hội cộng sản chủ nghĩa. Giai cấp công 
-                      nhân là giai cấp đại biểu cho tương lai, cho xu thế đi lên của tiến trình phát triển lịch sử - đây là đặc tính quan trọng, quyết định bản chất cách mạng của giai cấp công nhân. 
-                      Hoàn toàn không phải vì nghèo khổ mà giai cấp công nhân là một giai cấp cách mạng. Tình trạng nghèo khổ của giai cấp công nhân dưới chủ nghĩa tư bản là hậu quả của sự bóc lột, 
-                      áp bức mà giai cấp tư sản và chủ nghĩa tư bản tạo ra đối với công nhân, đó là trạng thái mà cách mạng sẽ xóa bỏ để giải phóng giai cấp công nhân và giải phóng xã hội.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
+              {/* Second objective condition */}
+              <div className="bg-[#26201D] p-5 rounded-lg border-l-4 border-[#DAA520]">
+                <div className="flex gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#DAA520] text-[#1A1512] flex items-center justify-center font-bold shadow-lg">
+                    2
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-semibold mb-2 text-[#DAA520]">Do địa vị chính trị - xã hội của giai cấp công nhân quy định</h4>
+                    <p className="text-base text-[#E6DCCF] leading-relaxed">
+                      Là giai cấp <span className="font-semibold">sản xuất ra của cải vật chất chủ yếu cho xã hội</span>, nhưng trong chủ nghĩa tư bản giai cấp công nhân
+                      <span className="font-semibold"> không sở hữu tư liệu sản xuất chủ yếu</span>, phải bán sức lao động để kiếm sống, bị bóc lột nặng nề,
+                      vì vậy <span className="font-semibold">lợi ích cơ bản của họ đối lập trực tiếp</span> với lợi ích cơ bản của giai cấp tư sản.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-            <Card>
-              <CardHeader>
-                <CardTitle>b) Điều kiện chủ quan để giai cấp công nhân thực hiện sứ mệnh lịch sử</CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">- Sự phát triển của bản thân giai cấp công nhân cả về số lượng và chất lượng.</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Thông qua sự phát triển này có thể thấy sự lớn mạnh của giai cấp công nhân cùng với quy mô phát triển của nền sản xuất vật chất hiện đại trên nền tảng của công nghiệp, 
-                      của kỹ thuật và công nghệ.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Sự phát triển về số lượng phải gắn liền với sự phát triển về chất lượng của giai cấp công nhân hiện đại, đảm bảo cho giai cấp công nhân thực hiện được sứ mệnh lịch sử của 
-                      mình. Chất lượng giai cấp công nhân phải thể hiện ở trình độ trưởng thành về ý thức chính trị của một giai cấp cách mạng, tức là tự giác nhận thức được vai trò và trọng trách 
-                      của giai cấp mình đối với lịch sử, do đó giai cấp công nhân phải được giác ngộ về lý luận khoa học và cách mạng của chủ nghĩa Mác - Lênin.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Là giai cấp đại diện tiêu biểu cho phương thức sản xuất tiên tiến, chất lượng của giai cấp công nhân còn phải thể hiện ở năng lực và trình độ làm chủ khoa học kỹ thuật và công nghệ 
-                      hiện đại, nhất là trong điều kiện hiện nay. Để phát triển giai cấp công nhân về số lượng và chất lượng, theo chủ nghĩa Mác - Lênin phải đặc biệt chú ý đến hai biện pháp cơ bản: 1) Phát 
-                      triển công nghiệp - "tiền để thực tiễn tuyệt đối cần thiết"; 2) Sự trưởng thành của Đảng Cộng sản - hạt nhân chính trị quan trọng của giai cấp công nhân.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Chỉ với sự phát triển về số lượng và chất lượng, đặc biệt về chất lượng, giai cấp công nhân mới có thể thực hiện được sứ mệnh lịch sử của giai cấp mình.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
+          {/* Subjective Conditions Section */}
+          <div className="bg-[#2F2622] p-6 rounded-lg border border-[#8B1E1E]/60">
+            <div className="flex items-center gap-3 mb-5">
+              <div className="p-2 bg-[#8B1E1E] rounded-lg">
+                <svg className="w-7 h-7 text-[#E6DCCF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-[#A52A2A]">b) Điều kiện Chủ quan để giai cấp công nhân thực hiện sứ mệnh lịch sử</h3>
+            </div>
 
-                <Card>
-                  <CardHeader>
-                    <CardTitle className="text-lg">- Đảng Cộng sản là nhân tố chủ quan quan trọng nhất để giai cấp công nhân thực hiện thắng lợi sứ mệnh lịch sử của mình.</CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-3">
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Đảng Cộng sản - đội tiên phong của giai cấp công nhân ra đời và đảm nhận vai trò lãnh đạo cuộc cách mạng là dấu hiệu về sự trưởng thành vượt bậc của giai cấp công nhân với tư cách là 
-                      giai cấp cách mạng.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Quy luật chung, phổ biến cho sự ra đời của Đảng Cộng sản là sự kết hợp giữa chủ nghĩa xã hội khoa học, tức chủ nghĩa Mác - Lênin với phong trào công nhân.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Giai cấp công nhân là cơ sở xã hội và nguồn bổ sung lực lượng quan trọng nhất của Đảng, làm cho Đảng mang bản chất giai cấp công nhân, trở thành đội tiên phong, bộ tham mưu chiến đấu của 
-                      giai cấp. Đảng Cộng sản đại biểu trung thành cho lợi ích của giai cấp công nhân, của dân tộc và xã hội. Sức mạnh của Đảng không chỉ thể hiện ở bản chất giai cấp công nhân mà còn ở mối liên hệ 
-                      mật thiết giữa Đảng với nhân dân, với đông đảo quần chúng lao động trong xã hội, thực hiện cuộc cách mạng do Đảng lãnh đạo để giải phóng giai cấp và giải phóng xã hội.
-                    </CardDescription>
-                    <CardDescription className="text-base text-foreground leading-relaxed">
-                      Ngoài hai điều kiện thuộc về nhân tố chủ quan nêu trên, chủ nghĩa Mác - Lênin còn chỉ rõ: để cuộc cách mạng thực hiện sứ mệnh lịch sử của giai cấp công nhân đi tới thắng lợi, phải có sự liên 
-                      minh giai cấp giữa giai cấp công nhân với giai cấp nông dân và các tầng lớp lao động khác do giai cấp công nhân thông qua đội tiên phong của nó là Đảng Cộng sản lãnh đạo. Đây cũng là một điều kiện 
-                      quan trọng không thể thiếu để thực hiện sứ mệnh lịch sử của giai cấp công nhân.
-                    </CardDescription>
-                  </CardContent>
-                </Card>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
-      </div>
-    </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              {/* First subjective condition */}
+              <div className="bg-[#26201D] p-5 rounded-lg border-l-4 border-[#C2B280]">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-2 bg-[#C2B280] rounded-lg flex-shrink-0">
+                    <svg className="w-5 h-5 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-base font-bold text-[#C2B280] mb-2">Sự phát triển của bản thân giai cấp công nhân</h4>
+                    <p className="text-sm text-[#E6DCCF] leading-relaxed">
+                      Sự phát triển về <span className="font-semibold">số lượng</span> phải gắn liền với sự phát triển về <span className="font-semibold">chất lượng</span> của giai cấp công nhân hiện đại,
+                      đảm bảo cho giai cấp công nhân thực hiện được sứ mệnh lịch sử của mình. Chất lượng giai cấp công nhân phải thể hiện ở
+                      <span className="font-semibold"> trình độ trưởng thành về ý thức chính trị</span> của một giai cấp cách mạng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Second subjective condition */}
+              <div className="bg-[#26201D] p-5 rounded-lg border-l-4 border-[#C2B280]">
+                <div className="flex items-start gap-3 mb-3">
+                  <div className="p-2 bg-[#C2B280] rounded-lg flex-shrink-0">
+                    <svg className="w-5 h-5 text-[#1A1512]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-base font-bold text-[#C2B280] mb-2">Đảng Cộng sản là nhân tố chủ quan quan trọng nhất</h4>
+                    <p className="text-sm text-[#E6DCCF] leading-relaxed">
+                      <span className="font-semibold">Đảng Cộng sản</span> - đội tiên phong của giai cấp công nhân ra đời và đảm nhận vai trò lãnh đạo cuộc cách mạng là dấu hiệu về
+                      <span className="font-semibold"> sự trưởng thành vượt bậc</span> của giai cấp công nhân với tư cách là giai cấp cách mạng.
+                      Giai cấp công nhân là <span className="font-semibold">cơ sở xã hội và nguồn bổ sung lực lượng quan trọng nhất</span> của Đảng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+  ];
+
+  return (
+    <PaginatedContent
+      mainTitle="QUAN ĐIỂM CƠ BẢN CỦA CHỦ NGHĨA MÁC - LÊNIN VỀ GIAI CẤP CÔNG NHÂN VÀ SỨ MỆNH LỊCH SỬ CỦA GIAI CẤP CÔNG NHÂN"
+      pages={pages}
+      nextContentUrl="/giai-cap-cong-nhan-viet-nam"
+      nextContentTitle="Giai cấp công nhân Việt Nam"
+    />
   );
 }
-

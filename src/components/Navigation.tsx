@@ -45,13 +45,15 @@ export function Navigation() {
 
   return (
     <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center justify-between">
+      <div className="container flex h-16 items-center">
+        {/* Left: Logo + Title */}
         <div className="flex items-center gap-2">
           <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="h-8 w-8" />
-          <span className="font-bold text-lg">Lịch Sử Cách Mạng</span>
+          <span className="font-bold text-lg">Giai cấp công nhân</span>
         </div>
 
-        <div className="flex items-center gap-2">
+        {/* Center: Menu Items */}
+        <div className="flex-1 flex items-center justify-center gap-2">
           {navItems.map((item) => {
             const Icon = item.icon;
             const isActive = location.pathname === item.path;
@@ -104,7 +106,10 @@ export function Navigation() {
               })}
             </DropdownMenuContent>
           </DropdownMenu>
+        </div>
 
+        {/* Right: Avatar/Login */}
+        <div className="flex items-center">
           {isAuthenticated && user ? (
             <DropdownMenu>
               <DropdownMenuTrigger asChild>

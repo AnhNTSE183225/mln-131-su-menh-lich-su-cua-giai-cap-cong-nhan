@@ -32,10 +32,10 @@ export function Leaderboard({ gameType }: LeaderboardProps) {
   }, [gameType]);
 
   return (
-    <Card>
+    <Card className="bg-[#2F2622] border-[#DAA520]/40 shadow-2xl">
       <CardHeader>
-        <CardTitle className="flex items-center gap-2">
-            <Trophy className="text-yellow-500"/>
+        <CardTitle className="flex items-center gap-2 text-[#DAA520]">
+            <Trophy className="text-[#DAA520]"/>
             Bảng Xếp Hạng Hàng Ngày
         </CardTitle>
       </CardHeader>
