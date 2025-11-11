@@ -146,7 +146,6 @@ export function MultipleChoiceQuiz() {
             </Button>
           </CardContent>
         </Card>
-        <Leaderboard gameType="multipleChoiceQuiz" />
       </div>
     );
   }
@@ -222,6 +221,9 @@ export function MultipleChoiceQuiz() {
           </CardContent>
         </Card>
       )}
+      <div className="mt-6">
+        <Leaderboard gameType="multipleChoiceQuiz" />
+      </div>
     </div>
   );
 }

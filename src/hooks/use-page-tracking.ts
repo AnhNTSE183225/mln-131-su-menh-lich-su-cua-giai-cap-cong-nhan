@@ -12,6 +12,7 @@ const PAGE_NAME_MAP: Record<string, string> = {
   '/comments': 'Nhận Xét',
   '/quiz': 'Trắc Nghiệm',
   '/analytics': 'Thống Kê',
+  '/login': 'Đăng Nhập',
 };
 
 // Minimum time between tracking the same page (in milliseconds)
