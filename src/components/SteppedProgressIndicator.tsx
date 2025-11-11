@@ -30,7 +30,6 @@ export function SteppedProgressIndicator({
           const stepNumber = index;
           const isCompleted = stepNumber < currentStep;
           const isCurrent = stepNumber === currentStep;
-          const isPending = stepNumber > currentStep;
 
           return (
             <button

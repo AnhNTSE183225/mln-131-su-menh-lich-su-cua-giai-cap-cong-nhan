@@ -1,6 +1,4 @@
 import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-
 export function QuanDiemCoBan() {
   const pages: PageContent[] = [
     // Page 1: Khái niệm và đặc điểm của giai cấp công nhân

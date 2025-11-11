@@ -1,6 +1,4 @@
 import { PaginatedContent, type PageContent } from '@/components/PaginatedContent';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-
 export function GiaiCapCongNhanHienNay() {
   const pages: PageContent[] = [
     // Page 1: Giai cấp công nhân hiện nay

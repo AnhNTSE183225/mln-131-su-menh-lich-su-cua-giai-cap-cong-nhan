@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Check, Award, Lightbulb, Trophy } from 'lucide-react';
 import { useAuth } from '@/hooks/use-auth';
 import { submitScore } from '@/api/games';
