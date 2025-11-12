@@ -2,6 +2,10 @@ import {type PageContent, PaginatedContent} from '@/components/PaginatedContent'
 import page1 from '/images/pages/quan-diem-co-ban/page-1.png';
 import page2 from '/images/pages/quan-diem-co-ban/page-2.png';
 import page3 from '/images/pages/quan-diem-co-ban/page-3.png';
+import page4 from '/images/pages/quan-diem-co-ban/page-4.png';
+import page4_industry_4 from '/images/pages/quan-diem-co-ban/page-4-industry-4.png';
+import page4_labor_day from '/images/pages/quan-diem-co-ban/page-4-labor-day.png';
+import page4_october_revolution from '/images/pages/quan-diem-co-ban/page-4-october-revolution.png';
 
 export function QuanDiemCoBan() {
     const pages: PageContent[] = [
@@ -510,6 +514,8 @@ export function QuanDiemCoBan() {
         {
             title: '4. Vì sao giai cấp công nhân phải tự mình đấu tranh để giải phóng?',
             imagePosition: 'bottom',
+            imageUrl: page4,
+            imageSource: 'Đài Hà Nội trân trọng giới thiệu bài viết của Đại tướng, Giáo sư, Tiến sĩ Tô Lâm, Tổng Bí thư Ban Chấp hành Trung ương Đảng, Chủ tịch nước Cộng hòa xã hội chủ nghĩa Việt Nam: "Quyết tâm xây dựng Đảng vững mạnh, nước Việt Nam giàu mạnh, dân chủ, công bằng, văn minh"',
             content: (
                 <div className="space-y-8" style={{backgroundColor: '#FAF9F6'}}>
                     {/* Giới thiệu */}
@@ -550,7 +556,7 @@ export function QuanDiemCoBan() {
                         </div>
                         <div>
                             <img
-                                src="/images/pages/quan-diem-co-ban/page-4-labor-day.png"
+                                src={page4_labor_day}
                                 alt="Biểu tình công nhân Mỹ - Ngày Quốc tế Lao động 1/5/1886"
                                 className="w-full rounded-lg shadow-lg"
                                 onError={(e) => {
@@ -569,7 +575,7 @@ export function QuanDiemCoBan() {
                     <div className="grid md:grid-cols-2 gap-6 items-center">
                         <div className="order-2 md:order-1">
                             <img
-                                src="/images/pages/quan-diem-co-ban/page-4-october-revolution.png"
+                                src={page4_october_revolution}
                                 alt="Cuộc tấn công vào Cung điện Mùa đông ở Petrograd"
                                 className="w-full rounded-lg shadow-lg"
                                 onError={(e) => {
@@ -634,7 +640,7 @@ export function QuanDiemCoBan() {
                         </div>
                         <div>
                             <img
-                                src="/images/pages/quan-diem-co-ban/page-4-industry-4.png"
+                                src={page4_industry_4}
                                 alt="Công nhân Việt Nam trong Cách mạng Công nghiệp 4.0"
                                 className="w-full rounded-lg shadow-lg"
                                 onError={(e) => {
@@ -666,20 +672,6 @@ export function QuanDiemCoBan() {
                                 góp phần xây dựng một đất nước <span className="font-semibold">"dân giàu, nước mạnh, dân chủ, công bằng, văn minh."</span>
                             </p>
                         </div>
-                    </div>
-
-                    {/* Ảnh bài viết của Tổng Bí thư */}
-                    <div className="mt-6">
-                        <img
-                            src="/images/pages/quan-diem-co-ban/page-4.png"
-                            alt="Bài viết của Đại tướng, Giáo sư, Tiến sĩ Tô Lâm"
-                            className="w-full rounded-lg shadow-lg"
-                        />
-                        <p className="text-sm mt-3 italic text-center leading-relaxed" style={{color: '#666'}}>
-                            Đài Hà Nội trân trọng giới thiệu bài viết của Đại tướng, Giáo sư, Tiến sĩ Tô Lâm,
-                            Tổng Bí thư Ban Chấp hành Trung ương Đảng, Chủ tịch nước Cộng hòa xã hội chủ nghĩa Việt Nam:
-                            <span className="font-semibold"> "Quyết tâm xây dựng Đảng vững mạnh, nước Việt Nam giàu mạnh, dân chủ, công bằng, văn minh"</span>
-                        </p>
                     </div>
                 </div>
             ),
