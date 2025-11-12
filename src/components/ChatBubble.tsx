@@ -151,7 +151,7 @@ export function ChatBubble() {
                                             key={question}
                                             variant="secondary"
                                             size="sm"
-                                            className="w-full justify-start text-left whitespace-normal break-words"
+                                            className="w-full justify-start text-left whitespace-normal break-words text-xs"
                                             onClick={() => sendMessage(question)}
                                             disabled={isLoading}
                                         >
@@ -161,7 +161,7 @@ export function ChatBubble() {
                                 </div>
                             </div>
                         )}
-                        <ScrollArea className="h-96 pr-4">
+                        <ScrollArea className="max-h-[70vh] pr-4">
                             <div className="space-y-4">
                                 {messages.map((message) => (
                                     <div
@@ -173,7 +173,7 @@ export function ChatBubble() {
                                         <div
                                             className={`max-w-[80%] rounded-lg px-4 py-2 ${
                                                 message.sender === 'user'
-                                                    ? 'bg-primary text-primary-foreground'
+                                                    ? 'bg-primary text-white'
                                                     : message.status === 'error'
                                                         ? 'bg-destructive text-destructive-foreground'
                                                         : 'bg-muted'
@@ -181,7 +181,7 @@ export function ChatBubble() {
                                         >
                                             {message.sender === 'bot' ? (
                                                 <div
-                                                    className="prose prose-sm max-w-none text-black prose-headings:text-black prose-headings:mb-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0">
+                                                    className="prose prose-xs max-w-none text-black prose-headings:text-black prose-headings:mb-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0">
                                                     <ReactMarkdown
                                                         remarkPlugins={[remarkGfm]}
                                                         components={{
@@ -198,9 +198,9 @@ export function ChatBubble() {
                                                     </ReactMarkdown>
                                                 </div>
                                             ) : (
-                                                <p className="text-sm whitespace-pre-line">{message.text}</p>
+                                                <p className="text-xs whitespace-pre-line">{message.text}</p>
                                             )}
-                                            <p className="text-xs opacity-70 mt-1">
+                                            <p className="text-[0.65rem] opacity-70 mt-1">
                                                 {message.timestamp.toLocaleTimeString('vi-VN', {
                                                     hour: '2-digit',
                                                     minute: '2-digit',
@@ -225,6 +225,7 @@ export function ChatBubble() {
                                     }
                                 }}
                                 disabled={isLoading}
+                                className="text-sm"
                             />
                             <Button size="icon" onClick={() => sendMessage()} disabled={isLoading}>
                                 <Send className="h-4 w-4"/>
