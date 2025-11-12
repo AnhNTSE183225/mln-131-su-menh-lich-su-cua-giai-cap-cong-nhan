@@ -2,7 +2,6 @@ import {useEffect, useMemo, useRef, useState} from 'react';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
-import {ScrollArea} from '@/components/ui/scroll-area';
 import {MessageCircle, Send, X} from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
