@@ -70,7 +70,7 @@ export function Home() {
 
                 <Card>
                     <CardHeader>
-                        <CardTitle>Lí Do Của Website</CardTitle>
+                        <CardTitle>Lí Do Website Này Ra Đời</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <CardDescription className="text-base text-foreground leading-relaxed">
