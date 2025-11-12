@@ -3,6 +3,7 @@ import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {Input} from '@/components/ui/input';
 import {MessageCircle, Send, X} from 'lucide-react';
+import {LoadingBubble} from '@/components/LoadingBubble';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import {askMissionAssistant, type ChatTurn} from '@/api/chat';
@@ -55,7 +56,7 @@ export function ChatBubble() {
         }
     }, [messages, isOpen]);
 
-    const sendMessage = async (messageText?: string) => {
+    const sendMessage = (messageText?: string) => {
         const textToSend = (messageText ?? inputValue).trim();
         if (!textToSend || isLoading) {
             return;
@@ -72,7 +73,7 @@ export function ChatBubble() {
         const pendingMessageId = generateId();
         const pendingBotMessage: Message = {
             id: pendingMessageId,
-            text: 'Đang soạn câu trả lời...',
+            text: '', // Start with empty text for streaming
             sender: 'bot',
             timestamp: new Date(),
             status: 'pending',
@@ -89,39 +90,44 @@ export function ChatBubble() {
         setInputValue('');
         setIsLoading(true);
 
-        try {
-            const answer = await askMissionAssistant(textToSend, historyForApi);
-            setMessages((prev) =>
-                prev.map((message) =>
-                    message.id === pendingMessageId
-                        ? {
-                            ...message,
-                            text: answer,
-                            status: 'ready',
-                            timestamp: new Date(),
-                        }
-                        : message
-                )
-            );
-        } catch (error) {
-            setMessages((prev) =>
-                prev.map((message) =>
-                    message.id === pendingMessageId
-                        ? {
-                            ...message,
-                            text:
-                                error instanceof Error
-                                    ? error.message
-                                    : 'Có lỗi xảy ra khi gọi trợ lý. Vui lòng thử lại.',
-                            status: 'error',
-                            timestamp: new Date(),
-                        }
-                        : message
-                )
-            );
-        } finally {
-            setIsLoading(false);
-        }
+        askMissionAssistant({
+            question: textToSend,
+            history: historyForApi,
+            onChunk: (chunk) => {
+                setMessages((prev) =>
+                    prev.map((message) =>
+                        message.id === pendingMessageId
+                            ? {...message, text: message.text + chunk}
+                            : message
+                    )
+                );
+            },
+            onComplete: () => {
+                setIsLoading(false);
+                setMessages((prev) =>
+                    prev.map((message) =>
+                        message.id === pendingMessageId
+                            ? {...message, status: 'ready', timestamp: new Date()}
+                            : message
+                    )
+                );
+            },
+            onError: (error) => {
+                setIsLoading(false);
+                setMessages((prev) =>
+                    prev.map((message) =>
+                        message.id === pendingMessageId
+                            ? {
+                                ...message,
+                                text: error.message,
+                                status: 'error',
+                                timestamp: new Date(),
+                            }
+                            : message
+                    )
+                );
+            },
+        });
     };
 
     return (
@@ -175,9 +181,11 @@ export function ChatBubble() {
                                                                                         : message.status === 'error'
                                                                                             ? 'bg-destructive text-destructive-foreground'
                                                                                             : 'bg-muted'
-                                                                                } ${message.status === 'pending' ? 'italic opacity-80' : ''}`}
+                                                                                } ${message.status === 'pending' ? 'opacity-80' : ''}`}
                                                                             >
-                                                                                {message.sender === 'bot' ? (
+                                                                                {message.status === 'pending' ? (
+                                                                                    <LoadingBubble />
+                                                                                ) : message.sender === 'bot' ? (
                                                                                     <div
                                                                                         className="prose prose-xs max-w-none text-black prose-headings:text-black prose-headings:mb-1 prose-p:my-1 prose-ul:my-1 prose-ol:my-1 prose-li:my-0">
                                                                                         <ReactMarkdown
