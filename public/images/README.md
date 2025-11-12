@@ -23,11 +23,13 @@
 ## 🖼️ Yêu Cầu Hình Ảnh
 
 ### Kích thước và định dạng
+
 - **Độ phân giải tối thiểu**: 1200x800px
 - **Định dạng khuyến nghị**: .jpg, .webp, .png
 - **Kích thước file**: < 500KB (nên optimize trước khi upload)
 
 ### Nội dung hình ảnh
+
 - Phù hợp với chủ đề lịch sử, giai cấp công nhân
 - Rõ nét, chất lượng cao
 - Không vi phạm bản quyền
@@ -35,10 +37,13 @@
 ## 📝 Cách Sử Dụng
 
 ### Bước 1: Thêm hình ảnh vào thư mục
+
 Đặt file hình vào thư mục tương ứng với tên đúng format:
+
 - `page-1.jpg`, `page-2.jpg`, `page-3.jpg`
 
 ### Bước 2: Ghi nguồn trong sources.txt
+
 Mở file `sources.txt` trong thư mục và ghi nguồn:
 
 ```txt
@@ -53,16 +58,16 @@ Trong file trang (ví dụ: `QuanDiemCoBan.tsx`):
 
 ```tsx
 const pages: PageContent[] = [
-  {
-    title: '1. Khái niệm và đặc điểm của giai cấp công nhân',
-    imagePosition: 'top',
-    imageUrl: '/images/pages/quan-diem-co-ban/page-1.jpg',
-    imageSource: 'Bảo tàng Lịch sử Việt Nam',
-    content: (
-      // ... nội dung
-    ),
-  },
-  // ...
+    {
+        title: '1. Khái niệm và đặc điểm của giai cấp công nhân',
+        imagePosition: 'top',
+        imageUrl: '/images/pages/quan-diem-co-ban/page-1.jpg',
+        imageSource: 'Bảo tàng Lịch sử Việt Nam',
+        content: (
+            // ... nội dung
+        ),
+    },
+    // ...
 ];
 ```
 

@@ -4,167 +4,171 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-foreground: var(--card-foreground);
-  --color-popover: var(--popover);
-  --color-popover-foreground: var(--popover-foreground);
-  --color-primary: var(--primary);
-  --color-primary-foreground: var(--primary-foreground);
-  --color-secondary: var(--secondary);
-  --color-secondary-foreground: var(--secondary-foreground);
-  --color-muted: var(--muted);
-  --color-muted-foreground: var(--muted-foreground);
-  --color-accent: var(--accent);
-  --color-accent-foreground: var(--accent-foreground);
-  --color-destructive: var(--destructive);
-  --color-border: var(--border);
-  --color-input: var(--input);
-  --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
+    --radius-sm: calc(var(--radius) - 4px);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-lg: var(--radius);
+    --radius-xl: calc(var(--radius) + 4px);
+    --color-background: var(--background);
+    --color-foreground: var(--foreground);
+    --color-card: var(--card);
+    --color-card-foreground: var(--card-foreground);
+    --color-popover: var(--popover);
+    --color-popover-foreground: var(--popover-foreground);
+    --color-primary: var(--primary);
+    --color-primary-foreground: var(--primary-foreground);
+    --color-secondary: var(--secondary);
+    --color-secondary-foreground: var(--secondary-foreground);
+    --color-muted: var(--muted);
+    --color-muted-foreground: var(--muted-foreground);
+    --color-accent: var(--accent);
+    --color-accent-foreground: var(--accent-foreground);
+    --color-destructive: var(--destructive);
+    --color-border: var(--border);
+    --color-input: var(--input);
+    --color-ring: var(--ring);
+    --color-chart-1: var(--chart-1);
+    --color-chart-2: var(--chart-2);
+    --color-chart-3: var(--chart-3);
+    --color-chart-4: var(--chart-4);
+    --color-chart-5: var(--chart-5);
+    --color-sidebar: var(--sidebar);
+    --color-sidebar-foreground: var(--sidebar-foreground);
+    --color-sidebar-primary: var(--sidebar-primary);
+    --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+    --color-sidebar-accent: var(--sidebar-accent);
+    --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+    --color-sidebar-border: var(--sidebar-border);
+    --color-sidebar-ring: var(--sidebar-ring);
 }
 
 :root {
-  --radius: 0.375rem;
+    --radius: 0.375rem;
 
-  /* Dark Historical Oil Painting Theme */
-  /* Background - Dark warm brown-black (#1A1512) */
-  --background: #1A1512;
-  /* Text Primary - Cream (#E6DCCF) */
-  --foreground: #E6DCCF;
+    /* Light Academia / Scholarly Theme */
+    /* Background - Warm Cream (#FDFBF5) */
+    --background: #FDFBF5;
+    /* Text Primary - Charcoal (#2F2F2F) */
+    --foreground: #2F2F2F;
 
-  /* Card Background - Darker warm brown (#2F2622) */
-  --card: #2F2622;
-  --card-foreground: #E6DCCF;
+    /* Card Background - Pure White (#FFFFFF) */
+    --card: #FFFFFF;
+    --card-foreground: #2F2F2F;
 
-  /* Popover */
-  --popover: #2F2622;
-  --popover-foreground: #E6DCCF;
+    /* Popover */
+    --popover: #FFFFFF;
+    --popover-foreground: #2F2F2F;
 
-  /* Primary - Deep Red (#8B1E1E) */
-  --primary: #8B1E1E;
-  --primary-foreground: #E6DCCF;
+    /* Primary - Deep Red (#8B1E1E) - Historical accent */
+    --primary: #8B1E1E;
+    --primary-foreground: #FFFFFF;
 
-  /* Secondary - Warm charcoal (#26201D) */
-  --secondary: #26201D;
-  --secondary-foreground: #E6DCCF;
+    /* Secondary - Light Beige (#F5F1E8) */
+    --secondary: #F5F1E8;
+    --secondary-foreground: #2F2F2F;
 
-  /* Muted */
-  --muted: #3A3229;
-  --muted-foreground: #C2B280;
+    /* Muted */
+    --muted: #E8E6E3;
+    --muted-foreground: #666666;
 
-  /* Accent - Golden brass (#DAA520) */
-  --accent: #DAA520;
-  --accent-foreground: #1A1512;
+    /* Accent - Scholarly Navy (#003366) */
+    --accent: #003366;
+    --accent-foreground: #FFFFFF;
 
-  /* Destructive */
-  --destructive: #A52A2A;
+    /* Destructive */
+    --destructive: #C1440E;
 
-  /* Borders - Subtle warm tone */
-  --border: #4A4037;
-  --input: #4A4037;
-  --ring: #DAA520;
+    /* Borders - Soft Gray */
+    --border: #D4D2CE;
+    --input: #D4D2CE;
+    --ring: #003366;
 
-  /* Charts - Historical tones */
-  --chart-1: #8B1E1E;
-  --chart-2: #A52A2A;
-  --chart-3: #DAA520;
-  --chart-4: #C2B280;
-  --chart-5: #8B6914;
+    /* Charts - Light Academia tones */
+    --chart-1: #8B1E1E;
+    --chart-2: #003366;
+    --chart-3: #B8860B;
+    --chart-4: #6B8E23;
+    --chart-5: #8B4513;
 
-  /* Sidebar */
-  --sidebar: #26201D;
-  --sidebar-foreground: #E6DCCF;
-  --sidebar-primary: #8B1E1E;
-  --sidebar-primary-foreground: #E6DCCF;
-  --sidebar-accent: #2F2622;
-  --sidebar-accent-foreground: #E6DCCF;
-  --sidebar-border: #4A4037;
-  --sidebar-ring: #DAA520;
+    /* Sidebar */
+    --sidebar: #F5F1E8;
+    --sidebar-foreground: #2F2F2F;
+    --sidebar-primary: #8B1E1E;
+    --sidebar-primary-foreground: #FFFFFF;
+    --sidebar-accent: #FFFFFF;
+    --sidebar-accent-foreground: #2F2F2F;
+    --sidebar-border: #D4D2CE;
+    --sidebar-ring: #003366;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
+    * {
+        @apply border-border outline-ring/50;
+    }
 
-  body {
-    @apply bg-background text-foreground;
-    font-family: 'Merriweather', Georgia, serif;
+    body {
+        @apply bg-background text-foreground;
+        font-family: 'Merriweather', Georgia, serif;
 
-    /* Add subtle canvas/paper texture */
-    background-image:
-      repeating-linear-gradient(
-        0deg,
-        transparent,
-        transparent 2px,
-        rgba(230, 220, 207, 0.015) 2px,
-        rgba(230, 220, 207, 0.015) 4px
-      ),
-      repeating-linear-gradient(
-        90deg,
-        transparent,
-        transparent 2px,
-        rgba(230, 220, 207, 0.015) 2px,
-        rgba(230, 220, 207, 0.015) 4px
-      );
-    background-size: 100% 100%;
-  }
+        /* Add subtle paper texture for Light Academia feel */
+        background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(47, 47, 47, 0.02) 2px,
+                rgba(47, 47, 47, 0.02) 4px
+        ),
+        repeating-linear-gradient(
+                90deg,
+                transparent,
+                transparent 2px,
+                rgba(47, 47, 47, 0.02) 2px,
+                rgba(47, 47, 47, 0.02) 4px
+        );
+        background-size: 100% 100%;
+    }
 
-  /* Historical Serif Typography for Headings */
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-weight: 700;
-    letter-spacing: 0.015em;
-    color: #E6DCCF;
-  }
+    /* Scholarly Serif Typography for Headings */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', Georgia, serif;
+        font-weight: 700;
+        letter-spacing: 0.015em;
+        color: #2F2F2F;
+    }
 
-  h1 {
-    font-size: 2.5rem;
-    font-weight: 800;
-    line-height: 1.2;
-  }
+    h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        line-height: 1.2;
+    }
 
-  h2 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
+    h2 {
+        font-size: 2rem;
+        font-weight: 700;
+    }
 
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-  }
+    h3 {
+        font-size: 1.5rem;
+        font-weight: 700;
+    }
 
-  h4 {
-    font-size: 1.25rem;
-    font-weight: 600;
-  }
+    h4 {
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
 
-  /* Enhance readability on dark background */
-  p {
-    line-height: 1.75;
-    color: #E6DCCF;
-  }
+    /* Enhanced readability with proper line height and justified text */
+    p {
+        line-height: 1.75;
+        color: #2F2F2F;
+        text-align: justify;
+    }
 
-  /* Add subtle glow to accent elements */
-  .text-accent, .bg-accent {
-    text-shadow: 0 0 8px rgba(218, 165, 32, 0.3);
-  }
+    /* Clean scholarly style - no glow effects */
+    .text-accent {
+        color: #003366;
+    }
+
+    .bg-accent {
+        background-color: #003366;
+    }
 }

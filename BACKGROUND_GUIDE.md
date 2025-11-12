@@ -6,14 +6,14 @@ Website hiện đã có hệ thống ảnh nền động, tự động thay đ�
 
 ### Danh Sách Ảnh Nền Theo Route
 
-| Trang | Route | File Ảnh | Nguồn |
-|-------|-------|----------|-------|
-| Trang Chủ | `/` | `home_background.jpg` | - |
-| Quan Điểm Cơ Bản | `/quan-diem-co-ban` | `content_1.png` | Gemini AI |
-| Giai Cấp CN Hiện Nay | `/giai-cap-cong-nhan-hien-nay` | `content_2.png` | Gemini AI |
-| Giai Cấp CN Việt Nam | `/giai-cap-cong-nhan-viet-nam` | `content_3.png` | Tạp chí Tuyên giáo |
-| Quiz | `/quiz` | `quiz.png` | thechap.co.uk |
-| Câu Hỏi Ôn Tập | `/cau-hoi-on-tap` | `content_1.png` | Gemini AI |
+| Trang                | Route                          | File Ảnh              | Nguồn              |
+|----------------------|--------------------------------|-----------------------|--------------------|
+| Trang Chủ            | `/`                            | `home_background.jpg` | -                  |
+| Quan Điểm Cơ Bản     | `/quan-diem-co-ban`            | `content_1.png`       | Gemini AI          |
+| Giai Cấp CN Hiện Nay | `/giai-cap-cong-nhan-hien-nay` | `content_2.png`       | Gemini AI          |
+| Giai Cấp CN Việt Nam | `/giai-cap-cong-nhan-viet-nam` | `content_3.png`       | Tạp chí Tuyên giáo |
+| Quiz                 | `/quiz`                        | `quiz.png`            | thechap.co.uk      |
+| Câu Hỏi Ôn Tập       | `/cau-hoi-on-tap`              | `content_1.png`       | Gemini AI          |
 
 ## 🎨 Tính Năng
 
@@ -63,6 +63,7 @@ File: `src/components/Layout.tsx` (dòng 42)
 ```
 
 **Các mức độ tối:**
+
 - `bg-background/70` - Sáng hơn (70% opacity)
 - `bg-background/85` - Mặc định (85% opacity)
 - `bg-background/90` - Tối hơn (90% opacity)
@@ -75,6 +76,7 @@ File: `src/components/Layout.tsx` (dòng 42)
 ```
 
 **Các mức độ blur:**
+
 - `backdrop-blur-none` - Không blur
 - `backdrop-blur-sm` - Blur nhẹ (mặc định)
 - `backdrop-blur` - Blur trung bình
@@ -114,16 +116,19 @@ style={{
 ## 🔍 Troubleshooting
 
 **Ảnh không hiển thị:**
+
 1. Kiểm tra đường dẫn trong `BACKGROUND_MAP`
 2. Kiểm tra file có tồn tại trong `/public/images/backgrounds/`
 3. Refresh trình duyệt (Ctrl + F5)
 
 **Text khó đọc:**
+
 1. Tăng opacity của overlay: `bg-background/90` hoặc `bg-background/95`
 2. Tăng blur: `backdrop-blur-md`
 3. Thay ảnh nền tối hơn
 
 **Ảnh load chậm:**
+
 1. Optimize/nén ảnh
 2. Đổi format sang .webp
 3. Giảm resolution (không quá 1920px chiều rộng)

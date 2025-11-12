@@ -1,154 +1,174 @@
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { Avatar, AvatarFallback } from '@/components/ui/avatar';
+import {Link, useLocation, useNavigate} from 'react-router-dom';
+import {Button} from '@/components/ui/button';
+import {Avatar, AvatarFallback} from '@/components/ui/avatar';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuSeparator,
+    DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Home, MessageSquare, Brain, BarChart3, LogIn, BookOpen, Globe, Flag, HelpCircle, ChevronDown } from 'lucide-react';
-import { useAuth } from '@/hooks/use-auth';
+import {BarChart3, BookOpen, Brain, ChevronDown, Flag, Globe, Home, LogIn, MessageSquare} from 'lucide-react';
+import {useAuth} from '@/hooks/use-auth';
 
 export function Navigation() {
-  const location = useLocation();
-  const navigate = useNavigate();
-  const { user, logout, isAuthenticated } = useAuth();
+    const location = useLocation();
+    const navigate = useNavigate();
+    const {user, logout, isAuthenticated} = useAuth();
 
-  const contentPages = [
-    { path: '/quan-diem-co-ban', label: 'Quan Điểm Cơ Bản', icon: BookOpen },
-    { path: '/giai-cap-cong-nhan-hien-nay', label: 'Giai Cấp Công Nhân Hiện Nay', icon: Globe },
-    { path: '/giai-cap-cong-nhan-viet-nam', label: 'Giai Cấp Công Nhân Việt Nam', icon: Flag },
-    { path: '/cau-hoi-on-tap', label: 'Câu Hỏi Ôn Tập', icon: HelpCircle },
-  ];
+    const contentPages = [
+        {path: '/quan-diem-co-ban', label: 'Quan Điểm Cơ Bản', icon: BookOpen},
+        {path: '/giai-cap-cong-nhan-hien-nay', label: 'Giai Cấp Công Nhân Hiện Nay', icon: Globe},
+        {path: '/giai-cap-cong-nhan-viet-nam', label: 'Giai Cấp Công Nhân Việt Nam', icon: Flag},
+    ];
 
-  const navItems = [
-    { path: '/', label: 'Trang Chủ', icon: Home },
-    { path: '/comments', label: 'Nhận Xét & Phản Hồi', icon: MessageSquare },
-    { path: '/quiz', label: 'Trắc Nghiệm', icon: Brain },
-    { path: '/analytics', label: 'Thống Kê', icon: BarChart3 },
-  ];
+    const navItems = [
+        {path: '/', label: 'Trang Chủ', icon: Home},
+        {path: '/quiz', label: 'Trắc Nghiệm', icon: Brain},
+        {path: '/comments', label: 'Nhận Xét & Phản Hồi', icon: MessageSquare},
+        {path: '/analytics', label: 'Thống Kê', icon: BarChart3},
+    ];
 
-  // Check if any content page is active
-  const isContentPageActive = contentPages.some(page => location.pathname === page.path);
+    // Check if any content page is active
+    const isContentPageActive = contentPages.some(page => location.pathname === page.path);
 
-  const getInitials = (name: string) => {
-    return name
-      .split(' ')
-      .map((n) => n[0])
-      .join('')
-      .toUpperCase()
-      .slice(0, 2);
-  };
+    const getInitials = (name: string) => {
+        return name
+            .split(' ')
+            .map((n) => n[0])
+            .join('')
+            .toUpperCase()
+            .slice(0, 2);
+    };
 
-  return (
-    <nav className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-16 items-center">
-        {/* Left: Logo + Title */}
-        <div className="flex items-center gap-2">
-          <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="h-8 w-8" />
-          <span className="font-bold text-lg">Giai cấp công nhân</span>
-        </div>
+    return (
+        <nav
+            className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container flex h-16 items-center">
+                {/* Left: Logo + Title */}
+                <div className="flex items-center gap-2">
+                    <img src={`${import.meta.env.BASE_URL}logo.png`} alt="Logo" className="h-8 w-8"/>
+                    <span className="font-bold text-lg">Giai cấp công nhân</span>
+                </div>
 
-        {/* Center: Menu Items */}
-        <div className="flex-1 flex items-center justify-center gap-2">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const isActive = location.pathname === item.path;
+                {/* Center: Menu Items */}
+                <div className="flex-1 flex items-center justify-center gap-2">
+                    {/* Trang Chủ */}
+                    {navItems.slice(0, 1).map((item) => {
+                        const Icon = item.icon;
+                        const isActive = location.pathname === item.path;
 
-            return (
-              <Button
-                key={item.path}
-                variant={isActive ? 'default' : 'ghost'}
-                asChild
-              >
-                <Link to={item.path} className="flex items-center gap-2">
-                  <Icon className="h-4 w-4" />
-                  <span className="hidden sm:inline">{item.label}</span>
-                </Link>
-              </Button>
-            );
-          })}
+                        return (
+                            <Button
+                                key={item.path}
+                                variant={isActive ? 'default' : 'ghost'}
+                                asChild
+                            >
+                                <Link to={item.path} className="flex items-center gap-2">
+                                    <Icon className="h-4 w-4"/>
+                                    <span className="hidden sm:inline">{item.label}</span>
+                                </Link>
+                            </Button>
+                        );
+                    })}
 
-          {/* Content Pages Dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant={isContentPageActive ? 'default' : 'ghost'}
-                className="flex items-center gap-2"
-              >
-                <BookOpen className="h-4 w-4" />
-                <span className="hidden sm:inline">Nội Dung</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" alignOffset={-8}>
-              <DropdownMenuLabel>Nội Dung Học Tập</DropdownMenuLabel>
-              <DropdownMenuSeparator />
-              {contentPages.map((page) => {
-                const Icon = page.icon;
-                const isActive = location.pathname === page.path;
+                    {/* Content Pages Dropdown - Nội Dung */}
+                    <DropdownMenu>
+                        <DropdownMenuTrigger asChild>
+                            <Button
+                                variant={isContentPageActive ? 'default' : 'ghost'}
+                                className="flex items-center gap-2"
+                            >
+                                <BookOpen className="h-4 w-4"/>
+                                <span className="hidden sm:inline">Nội Dung</span>
+                                <ChevronDown className="h-4 w-4"/>
+                            </Button>
+                        </DropdownMenuTrigger>
+                        <DropdownMenuContent align="end" alignOffset={-8}>
+                            <DropdownMenuLabel>Nội Dung Học Tập</DropdownMenuLabel>
+                            <DropdownMenuSeparator/>
+                            {contentPages.map((page) => {
+                                const Icon = page.icon;
+                                const isActive = location.pathname === page.path;
 
-                return (
-                  <DropdownMenuItem
-                    key={page.path}
-                    asChild
-                    className={isActive ? 'bg-accent' : ''}
-                  >
-                    <Link to={page.path} className="flex items-center gap-2 w-full">
-                      <Icon className="h-4 w-4" />
-                      <span>{page.label}</span>
-                    </Link>
-                  </DropdownMenuItem>
-                );
-              })}
-            </DropdownMenuContent>
-          </DropdownMenu>
-        </div>
+                                return (
+                                    <DropdownMenuItem
+                                        key={page.path}
+                                        asChild
+                                        className={isActive ? 'bg-accent' : ''}
+                                    >
+                                        <Link to={page.path} className="flex items-center gap-2 w-full">
+                                            <Icon className="h-4 w-4"/>
+                                            <span>{page.label}</span>
+                                        </Link>
+                                    </DropdownMenuItem>
+                                );
+                            })}
+                        </DropdownMenuContent>
+                    </DropdownMenu>
 
-        {/* Right: Avatar/Login */}
-        <div className="flex items-center">
-          {isAuthenticated && user ? (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                  <Avatar className="h-10 w-10">
-                    <AvatarFallback>{getInitials(user.displayName)}</AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <DropdownMenuLabel className="font-normal">
-                  <div className="flex flex-col space-y-1">
-                    <p className="text-sm font-medium leading-none">{user.displayName}</p>
-                    <p className="text-xs leading-none text-muted-foreground">{user.username}</p>
-                  </div>
-                </DropdownMenuLabel>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  onClick={() => {
-                    logout();
-                    navigate('/');
-                  }}
-                >
-                  Đăng Xuất
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          ) : (
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" asChild>
-                <Link to="/login" className="flex items-center gap-2">
-                  <LogIn className="h-4 w-4" />
-                  <span className="hidden sm:inline">Đăng Nhập</span>
-                </Link>
-              </Button>
+                    {/* Remaining items: Trắc Nghiệm, Nhận Xét & Phản Hồi, Thống Kê */}
+                    {navItems.slice(1).map((item) => {
+                        const Icon = item.icon;
+                        const isActive = location.pathname === item.path;
+
+                        return (
+                            <Button
+                                key={item.path}
+                                variant={isActive ? 'default' : 'ghost'}
+                                asChild
+                            >
+                                <Link to={item.path} className="flex items-center gap-2">
+                                    <Icon className="h-4 w-4"/>
+                                    <span className="hidden sm:inline">{item.label}</span>
+                                </Link>
+                            </Button>
+                        );
+                    })}
+                </div>
+
+                {/* Right: Avatar/Login */}
+                <div className="flex items-center">
+                    {isAuthenticated && user ? (
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" className="relative h-10 w-10 rounded-full">
+                                    <Avatar className="h-10 w-10">
+                                        <AvatarFallback>{getInitials(user.displayName)}</AvatarFallback>
+                                    </Avatar>
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent className="w-56" align="end" forceMount>
+                                <DropdownMenuLabel className="font-normal">
+                                    <div className="flex flex-col space-y-1">
+                                        <p className="text-sm font-medium leading-none">{user.displayName}</p>
+                                        <p className="text-xs leading-none text-muted-foreground">{user.username}</p>
+                                    </div>
+                                </DropdownMenuLabel>
+                                <DropdownMenuSeparator/>
+                                <DropdownMenuItem
+                                    onClick={() => {
+                                        logout();
+                                        navigate('/');
+                                    }}
+                                >
+                                    Đăng Xuất
+                                </DropdownMenuItem>
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+                    ) : (
+                        <div className="flex items-center gap-2">
+                            <Button variant="ghost" asChild>
+                                <Link to="/login" className="flex items-center gap-2">
+                                    <LogIn className="h-4 w-4"/>
+                                    <span className="hidden sm:inline">Đăng Nhập</span>
+                                </Link>
+                            </Button>
+                        </div>
+                    )}
+                </div>
             </div>
-          )}
-        </div>
-      </div>
-    </nav>
-  );
+        </nav>
+    );
 }
