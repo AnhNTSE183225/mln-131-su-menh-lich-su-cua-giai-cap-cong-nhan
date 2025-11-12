@@ -2,7 +2,7 @@ import {useLocation} from 'react-router-dom';
 
 // Background image credits mapping
 const BACKGROUND_CREDITS: Record<string, string> = {
-    '/': 'Ảnh nền trang chủ',
+    '/': 'Nguồn ảnh nền: Thông tấn xã Việt Nam',
     '/quan-diem-co-ban': 'Nguồn ảnh nền: Tạo bởi Gemini - Prompt: Industrial revolution painting dark, 19th century factory interior vintage, steam engine machinery texture',
     '/giai-cap-cong-nhan-hien-nay': 'Nguồn ảnh nền: Tạo bởi Gemini - Prompt: Soviet worker propaganda poster muted, historical strike photos 1900s, vintage workers unity painting',
     '/giai-cap-cong-nhan-viet-nam': 'Nguồn ảnh nền: Tạp chí Tuyên giáo',

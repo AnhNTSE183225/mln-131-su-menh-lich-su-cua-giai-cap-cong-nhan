@@ -70,6 +70,20 @@ export function Home() {
 
                 <Card>
                     <CardHeader>
+                        <CardTitle>Lí Do Của Website</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <CardDescription className="text-base text-foreground leading-relaxed">
+                            Với tư cách là sinh viên ngành Kỹ thuật Phần mềm, chúng em nhận thấy một thách thức chung trong giáo dục hiện đại: làm thế nào để chuyển đổi các nội dung học thuật, đặc biệt là các môn lý luận chính trị, từ dạng văn bản truyền thống sang một nền tảng số hóa sáng sủa, thu hút và dễ tiếp cận hơn.
+                        </CardDescription>
+                        <CardDescription className="text-base text-foreground leading-relaxed">
+                            Nội dung về "Sứ mệnh lịch sử của giai cấp công nhân" là một học phần quan trọng, nhõi của môn học, với hy vọng mang lại một công cụ học tập hiệu quả và thú vị hơn cho các bạn sinh viên.
+                        </CardDescription>
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardHeader>
                         <CardTitle>Giới Thiệu</CardTitle>
                     </CardHeader>
                     <CardContent>

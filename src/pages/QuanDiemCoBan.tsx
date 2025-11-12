@@ -513,9 +513,6 @@ export function QuanDiemCoBan() {
         // Page 4: Vì sao giai cấp công nhân phải tự mình đấu tranh để giải phóng?
         {
             title: '4. Vì sao giai cấp công nhân phải tự mình đấu tranh để giải phóng?',
-            imagePosition: 'bottom',
-            imageUrl: page4,
-            imageSource: 'Đài Hà Nội trân trọng giới thiệu bài viết của Đại tướng, Giáo sư, Tiến sĩ Tô Lâm, Tổng Bí thư Ban Chấp hành Trung ương Đảng, Chủ tịch nước Cộng hòa xã hội chủ nghĩa Việt Nam: "Quyết tâm xây dựng Đảng vững mạnh, nước Việt Nam giàu mạnh, dân chủ, công bằng, văn minh"',
             content: (
                 <div className="space-y-8" style={{backgroundColor: '#FAF9F6'}}>
                     {/* Giới thiệu */}
@@ -672,6 +669,22 @@ export function QuanDiemCoBan() {
                                 góp phần xây dựng một đất nước <span className="font-semibold">"dân giàu, nước mạnh, dân chủ, công bằng, văn minh."</span>
                             </p>
                         </div>
+                    </div>
+
+                    {/* Video YouTube */}
+                    <div>
+                        <div className="relative w-full" style={{paddingBottom: '56.25%'}}>
+                            <iframe
+                                className="absolute top-0 left-0 w-full h-full rounded-lg shadow-lg"
+                                src="https://www.youtube.com/embed/oaUp24aVNyU"
+                                title="Vì sao giai cấp công nhân phải tự mình đấu tranh để giải phóng?"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <p className="text-sm mt-2 italic text-center" style={{color: '#666'}}>
+                            Nguồn: HTV - Đài Hà Nội
+                        </p>
                     </div>
                 </div>
             ),
