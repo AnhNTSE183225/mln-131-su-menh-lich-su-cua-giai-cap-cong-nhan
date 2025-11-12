@@ -341,7 +341,7 @@ export function Crossword() {
                     <div className="max-w-4xl mx-auto">
                         <div className="p-3 bg-card rounded-lg border border-primary/40">
                             <p className="text-foreground text-sm md:text-base">
-                                <span className="font-bold text-primary">Bí mật:</span> Các ô màu vàng đồng căn thẳng
+                                <span className="font-bold text-primary">Bí mật:</span> Các ô <span className="font-extrabold text-yellow-500">màu vàng</span> căn thẳng
                                 cột dọc - đọc từ trên xuống để khám phá từ khóa ẩn!
                             </p>
                         </div>
@@ -408,11 +408,16 @@ export function Crossword() {
                                                                             "absolute inset-0 w-full h-full p-0 flex items-center justify-center text-center text-[10px] md:text-xs lg:text-sm font-bold transition-all duration-200",
                                                                             "border border-border focus:border-primary focus:ring-1 focus:ring-[#DAA520] focus:outline-none",
                                                                             "rounded-sm",
-                                                                            cell.isVerticalKey && "bg-primary text-background",
+                                                                            // Base color for non-keyword cells
                                                                             !cell.isVerticalKey && "bg-muted text-foreground",
-                                                                            isHovered && "!ring-2 !ring-primary !border-primary z-10",
-                                                                            isRevealed && "bg-primary text-foreground",
-                                                                            isInCompletedWord && "bg-primary text-background animate-pulse"
+                                                                            // Completed word styling (only for non-keyword cells)
+                                                                            isInCompletedWord && !cell.isVerticalKey && "bg-green-200 text-gray-900 animate-pulse",
+                                                                            // Revealed hint styling (only for non-keyword cells)
+                                                                            isRevealed && !cell.isVerticalKey && "bg-blue-200 text-gray-900",
+                                                                            // Keyword cells always stay yellow (highest priority)
+                                                                            cell.isVerticalKey && "bg-yellow-400 text-gray-900 font-extrabold shadow-lg",
+                                                                            // Hover effect
+                                                                            isHovered && "!ring-2 !ring-primary !border-primary z-10"
                                                                         )}
                                                                         value={userGrid[r_idx][c_idx]}
                                                                         onChange={(e) => handleInputChange(r_idx, c_idx, e.target.value)}

@@ -2,7 +2,6 @@ import {type PageContent, PaginatedContent} from '@/components/PaginatedContent'
 import page1 from '/images/pages/quan-diem-co-ban/page-1.png';
 import page2 from '/images/pages/quan-diem-co-ban/page-2.png';
 import page3 from '/images/pages/quan-diem-co-ban/page-3.png';
-import page4 from '/images/pages/quan-diem-co-ban/page-4.png';
 import page4_industry_4 from '/images/pages/quan-diem-co-ban/page-4-industry-4.png';
 import page4_labor_day from '/images/pages/quan-diem-co-ban/page-4-labor-day.png';
 import page4_october_revolution from '/images/pages/quan-diem-co-ban/page-4-october-revolution.png';
